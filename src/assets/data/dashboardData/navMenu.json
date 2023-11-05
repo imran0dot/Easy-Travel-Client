@@ -1,0 +1,8 @@
+{
+    "dashboardNev": [
+        {
+            "label": "Tour Packages",
+            "link": "/dashboard/tour-packages-list"
+        }
+    ]
+}

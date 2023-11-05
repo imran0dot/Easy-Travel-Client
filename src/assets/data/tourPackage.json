@@ -1,0 +1,53 @@
+[
+    {
+        "id": "24324324234234234",
+        "thumbnail": "https://imagebb.com/tailedn-343.jpeg",
+        "packageName": "Thailand - Bangkok",
+        "includes": [
+            {
+                "icon": "FaRegCheckCircle",
+                "label": "2 Nights accommodation at Bangkok Hotel (Twin Share Basis)"
+            },
+            {
+                "icon": "FaRegCheckCircle",
+                "label": "Daily buffet Breakfast at Hotel"
+            },
+            {
+                "icon": "FaRegCheckCircle",
+                "label": "Transfer from Bangkok Airport - Hotel by Reserve AC Car / Micro"
+            },
+            {
+                "icon": "FaRegCheckCircle",
+                "label": "Transfer from Bangkok Hotel - Airport by Reserve AC Car / Micro"
+            }
+        ],
+        "excludes": [
+            {
+                "icon": "FaRegTimesCircle",
+                "label": "Thailand Visa fees with processing charges"
+            },
+            {
+                "icon": "FaRegTimesCircle",
+                "label": "Anything not specifically mentioned under the 'Package price includes'"
+            }
+        ],
+        "options": [
+            {
+                "roomStar": 2,
+                "roomType": "Standard",
+                "hotelName": "Woraburi Sukhumvite / Imm Fusion Sukhumvit",
+                "hotelLocation": "Sukhumvite"
+            }
+        ],
+        "price": [
+            {
+                "1 Per": "",
+                "2-3 Per": 7500,
+                "4-9 Per": 6900,
+                "10-19 Per": 6500,
+                "20+ Per": 6200,
+                "child": ""
+            }
+        ]
+    }
+]

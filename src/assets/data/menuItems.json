@@ -1,0 +1,45 @@
+{
+  "navItems": [
+    {
+      "label": "Tour Packages",
+      "link": "/tour-packages"
+    },
+    {
+      "label": "Tourist Visa",
+      "link": "/tourist-visa"
+    },
+    {
+      "label": "Student Visa",
+      "link": "/student-visa"
+    },
+    {
+      "label": "Air Ticket",
+      "link": "/air-ticket"
+    },
+    {
+      "label": "Hotel Booking",
+      "link": "/hotel-booking"
+    },
+    {
+      "label": "About us",
+      "link": "/about-us"
+    }
+  ],
+  "contactNav": [
+    {
+      "label": "WhatsApp",
+      "link": "/",
+      "icon": "FaWhatsapp"
+    },
+    {
+      "label": "Facebook",
+      "link": "/",
+      "icon": "FaFacebook"
+    },
+    {
+      "label": "Email",
+      "link": "/",
+      "icon": "FaEnvelope"
+    }
+  ]
+}

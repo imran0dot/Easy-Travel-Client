@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.custom-swiper{
+    position: relative;
+}
+
+.swiper-wrapper{
+    padding-top: 30px;
+}
+.custom-swiper .swiper-button-next,
+.custom-swiper .swiper-button-prev {
+  position: absolute;
+  top: 30px; 
+  border-radius: 100%;
+}
+
+.custom-swiper .swiper-button-next {
+    right: 50px; 
+  }
+
+  .custom-swiper .swiper-button-prev {
+    right: 120px !important;
+  }
+
+  .swiper-pagination-bullet-active{
+    background-color: #06A6E3 !important;
+  }
+
+  .effectCardSwiper .swiper-slide-shadow{
+    display: none !important;
+  }
+
+.jodit-status-bar{
+  display: none !important;
+}
