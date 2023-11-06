@@ -28,8 +28,8 @@ const Footer = () => {
                     </div>
                 </nav>
             </footer>
-            <div className="flex justify-center p-1 bg-secondary text-white">
-                <p>Copyright © 2023 - All right reserved by Detective SEO</p>
+            <div className="flex justify-center pb-3 p-1 bg-secondary text-white border-t">
+                <p>Copyright © 2023 - All right reserved by EasyTravels</p>
             </div>
         </div>
     );

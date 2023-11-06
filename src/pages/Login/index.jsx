@@ -1,9 +1,10 @@
 import { BsArrowRight } from 'react-icons/bs';
 import SimpleHeading from '../../components/base/SimpleHeading';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Auth } from '../../Providers/AuthProvider';
 const Login = () => {
     const { createUser } = useContext(Auth);
+
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -11,6 +12,7 @@ const Login = () => {
         const pass = form.password.value;
         createUser(email, pass)
     }
+    
     return (
         <div className="flex flex-col justify-center items-center w-4/12 border mx-auto my-36 p-20">
             <SimpleHeading heading="Login" />

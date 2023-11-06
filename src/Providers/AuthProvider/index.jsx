@@ -8,8 +8,10 @@ import { useEffect } from 'react';
 export const Auth = createContext(null);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [uaserLoading, setUserLoading] = useState(true);
+
+
     const auth = getAuth(app);
-    console.log(user)
     const createUser = (email, password) => {
         createUserWithEmailAndPassword(auth, email, password).then(res => {
             setUser(res.user);
@@ -33,6 +35,8 @@ const AuthProvider = ({ children }) => {
 
     const data = {
         user,
+        uaserLoading,
+        setUserLoading,
         createUser,
         logOut,
     }
