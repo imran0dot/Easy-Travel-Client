@@ -9,7 +9,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import { FreeMode, Navigation, Pagination } from 'swiper/modules';
+import { FreeMode } from 'swiper/modules';
 
 const Review = () => {
 
@@ -35,17 +35,14 @@ const Review = () => {
     return (
         <div className="my-10">
             <Container>
-                <Title title="Inspirational Stories" subTtile="from our participants" />
+                <Title title="Inspirational Stories" subTitle="from our participants" />
 
                 <div>
                     <Swiper
                         spaceBetween={30}
                         freeMode={true}
                         breakpoints={swiperBreakpoints}
-                        pagination={{
-                            clickable: true,
-                        }}
-                        modules={[FreeMode, Pagination, Navigation]}
+                        modules={[FreeMode]}
                         className="mySwiper"
                     >
                             <SwiperSlide><ReviewCard /></SwiperSlide>

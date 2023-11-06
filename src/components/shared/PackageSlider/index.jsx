@@ -1,9 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import PackageCard from "@components/base/PackageCard";
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 
 const PackageSlider = ({data}) => {
     const swiperBreakpoints = {
@@ -27,12 +26,11 @@ const PackageSlider = ({data}) => {
     return (
         <Swiper
             breakpoints={swiperBreakpoints}
-            navigation={true}
             pagination={{
                 dynamicBullets: true,
                 clickable: true,
             }}
-            modules={[Pagination, Navigation]}
+            modules={[Pagination]}
             className="mySwiper custom-swiper"
         >
             {

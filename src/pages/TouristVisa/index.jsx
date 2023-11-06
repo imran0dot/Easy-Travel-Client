@@ -1,13 +1,13 @@
 import ArchiveCard from "@components/base/ArchiveCard";
 import Container from "@components/base/Container";
+import tourPackageList from "@/assets/data/tourPackage.json"
 const TouristVisa = () => {
-    const listPacages = Array(50).fill();
 
     return (
         <div>
             <Container>
                 <div className="grid grid-cols-3 gap-10 my-10">
-                    {listPacages.map((note, index) => <ArchiveCard key={index} />)}
+                    {tourPackageList.map((listData, index) => <ArchiveCard key={index}  data={listData} />)}
                 </div>
             </Container>
         </div>
