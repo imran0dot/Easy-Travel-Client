@@ -5,7 +5,7 @@ import { Auth } from '../../Providers/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
 import LoadingSpinner from '../../components/base/LoadingSpinner';
 const Login = () => {
-    const { createUser, user, userLoading } = useContext(Auth);
+    const {loginUser, createUser, user, userLoading } = useContext(Auth);
     const location = useLocation();
     const path = location?.state?.from?.pathname || "/";
 
@@ -14,8 +14,7 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const pass = form.password.value;
-        console.log(email, pass);
-        createUser(email, pass)
+        loginUser(email, pass)
     }
 
 

@@ -28,7 +28,7 @@ const Table = ({ data }) => {
                                             <tr key={index} className="border border-black">
                                                 <th>{index + 1}</th>
                                                 <td>{item?.title}</td>
-                                                <td dangerouslySetInnerHTML={{ __html: item?.content }}></td>
+                                                <td dangerouslySetInnerHTML={({ __html: item?.content })}></td>
                                                 <td>{item?.time}</td>
                                                 <td><button className="btn btn-sm bg-red-600 text-white">delete</button> <button className="btn btn-sm bg-green-600 text-white">Edit</button></td>
                                             </tr>

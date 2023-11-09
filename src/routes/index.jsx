@@ -12,7 +12,6 @@ import SingleTourPackage from '../pages/SIngleTourPackage';
 import DashboardLayout from '../Dashboard/Layout';
 import AddTourist from '../Dashboard/Pages/AddTourist';
 import TourPackageList from '../Dashboard/Pages/TourPackageList';
-import axios from 'axios';
 import PrivateRoute from '../Providers/PrivateRoute';
 import Login from '../pages/Login';
 import TouristVisaList from '../Dashboard/Pages/TouristVisa';
@@ -69,7 +68,6 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/tour-packages-list",
                 element: <TourPackageList />,
-                loader: () => axios('tour-package').then((response) => response.data)
             },
             {
                 path: "/dashboard/add-tour-package",
