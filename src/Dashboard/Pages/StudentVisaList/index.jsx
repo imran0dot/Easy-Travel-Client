@@ -1,7 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Table from "../../Components/Table";
 
-const TourPackageList = () => {
+const StudentVisaList = () => {
     const data = useLoaderData();
     return (
         <div>
@@ -11,4 +11,4 @@ const TourPackageList = () => {
     );
 };
 
-export default TourPackageList;
+export default StudentVisaList;

@@ -3,6 +3,14 @@
         {
             "label": "Tour Packages",
             "link": "/dashboard/tour-packages-list"
+        },
+        {
+            "label": "Tourist Visa",
+            "link": "/dashboard/tourist-visa"
+        },
+        {
+            "label": "Student Visa",
+            "link": "/dashboard/student-visa"
         }
     ]
 }

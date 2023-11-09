@@ -15,6 +15,8 @@ import TourPackageList from '../Dashboard/Pages/TourPackageList';
 import axios from 'axios';
 import PrivateRoute from '../Providers/PrivateRoute';
 import Login from '../pages/Login';
+import TouristVisaList from '../Dashboard/Pages/TouristVisa';
+import StudentVisaList from '../Dashboard/Pages/StudentVisaList';
 
 const router = createBrowserRouter([
     {
@@ -72,6 +74,15 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/add-tour-package",
                 element: <AddTourist />
+            },
+            {
+                path: "/dashboard/tourist-visa",
+                element: <TouristVisaList />
+            }
+            ,
+            {
+                path: "/dashboard/student-visa",
+                element: <StudentVisaList />
             }
         ]
     },
