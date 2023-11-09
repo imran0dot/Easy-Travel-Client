@@ -7,7 +7,7 @@ const TourPackages = () => {
     return (
         <div>
             <Container>
-                <div className="grid grid-cols-3 gap-10 my-10">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
                     {tourPackageList?.map((listData, index) => <ArchiveCard key={index} data={listData} />)}
                 </div>
             </Container>

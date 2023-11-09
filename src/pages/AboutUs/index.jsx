@@ -79,7 +79,7 @@ const AboutUs = () => {
             <div className="py-20" style={styled}>
                 <Container>
                     <Title title="Let us help you plan your next adventure" subTitle="Perfect Vacation come True" />
-                    <div className=" grid grid-cols-3 gap-10 mt-20">
+                    <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
                         {
                             vacationInfo?.map((info, index) => {
                                 return (
@@ -98,15 +98,15 @@ const AboutUs = () => {
 
             <div>
                 <Container>
-                    <div className="flex justify-start gap-10 my-20 items-center bg-secondary text-white">
+                    <div className="flex flex-col lg:flex-row p-10 justify-start gap-10 my-20 items-center bg-secondary text-white">
 
-                        <div className="w-3/12">
+                        <div className="w-full lg:w-3/12">
                             <img src={sectionPackage} alt="" />
                         </div>
 
-                        <div className="w-7/12">
+                        <div className="w-full lg:w-7/12">
                             <p>Exclusive travel deals</p>
-                            <h2 className="font-bold text-5xl">Book your dream vacation today !</h2>
+                            <h2 className="font-bold lg:text-5xl">Book your dream vacation today !</h2>
                         </div>
 
                         <div>
