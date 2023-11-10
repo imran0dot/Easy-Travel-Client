@@ -4,8 +4,6 @@ const ArchiveCard = ({data}) => {
     const {id, packageName, includes, excludes, options, price } = data;
     const fromPrice = Object.values(price[0])[0] !== "" && Object.values(price[0])[0] || Object.values(price[0])[1];
 
-    console.log(includes);
-
     return (
         <div className="shadow-lg rounded-lg relative overflow-hidden group">
             <div className="w-full h-[300px] overflow-hidden">

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Head from "@components/base/Head";
 import Table from "../../Components/Table";
 import axios from "axios";
 import LoadingSpinner from "../../../components/base/LoadingSpinner";
@@ -18,6 +19,7 @@ const TourPackageList = () => {
 
     return (
         <div>
+            <Head title="Tour Package List" />
             {
                 isPending || isLoading ? <LoadingSpinner /> :
                     <div>

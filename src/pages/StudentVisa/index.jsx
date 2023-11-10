@@ -1,14 +1,16 @@
 import ArchiveCard from "@components/base/ArchiveCard";
 import Container from "@components/base/Container";
+import Head from "@components/base/Head";
 import tourPackageList from "@/assets/data/tourPackage.json"
 
 
 const StudentVisa = () => {
     return (
         <div>
+            <Head title="Student Visa | Easy Travels" />
             <Container>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
-                    {tourPackageList.map((listData, index) => <ArchiveCard key={index}  data={listData} />)}
+                    {tourPackageList.map((listData, index) => <ArchiveCard key={index} data={listData} />)}
                 </div>
             </Container>
         </div>

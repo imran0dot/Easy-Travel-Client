@@ -32,7 +32,6 @@ const router = createBrowserRouter([
             },
             {
                 path: `/tour-packages/:params`,
-                // loader: async({params}) => {console.log(params); return null},
                 element: <SingleTourPackage />,
             },
             {
