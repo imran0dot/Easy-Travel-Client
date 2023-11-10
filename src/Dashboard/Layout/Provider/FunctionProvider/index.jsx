@@ -139,8 +139,8 @@ const FuntionProvider = ({ children }) => {
 
 
 
-    const handleSubmit = async(e) => {
-        e.preventDefault();
+    const handleSubmit = async(postAPi) => {
+        console.log(postAPi);
         const data = {
             title,
             content,
@@ -152,7 +152,7 @@ const FuntionProvider = ({ children }) => {
 
 
         try {
-            axios.post("tour-package", data).then(res => {
+            axios.post(postAPi, data).then(res => {
                 if (res.status === 200) {
                     setTitle("")
                     setIncludes([""])

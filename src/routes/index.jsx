@@ -10,12 +10,14 @@ import HotelBooking from '../pages/HotelBooking';
 import AboutUs from '../pages/AboutUs';
 import SingleTourPackage from '../pages/SIngleTourPackage';
 import DashboardLayout from '../Dashboard/Layout';
-import AddTourist from '../Dashboard/Pages/AddTourist';
 import TourPackageList from '../Dashboard/Pages/TourPackageList';
 import PrivateRoute from '../Providers/PrivateRoute';
 import Login from '../pages/Login';
 import StudentVisaList from '../Dashboard/Pages/StudentVisaList';
 import TouristVisaList from '../Dashboard/Pages/TouristVisaList';
+import AddTouristVisa from '../Dashboard/Pages/AddTourist';
+import AddTourPackage from '../Dashboard/Pages/AddTourPackage';
+import AddStudentVisa from '../Dashboard/Pages/AddStudentVisa';
 
 const router = createBrowserRouter([
     {
@@ -70,17 +72,24 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboard/add-tour-package",
-                element: <AddTourist />
+                element: <AddTourPackage />
             },
             {
                 path: "/dashboard/tourist-visa",
                 element: <TouristVisaList />
-            }
-            ,
+            },
+            {
+                path: "/dashboard/add-tourist-visa",
+                element: <AddTouristVisa />
+            },
             {
                 path: "/dashboard/student-visa",
                 element: <StudentVisaList />
-            }
+            },
+            {
+                path: "/dashboard/add-student-visa",
+                element: <AddStudentVisa />
+            },
         ]
     },
     {

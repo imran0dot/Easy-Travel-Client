@@ -12,7 +12,7 @@ const TouristVisaList = () => {
             {
                 isPending || isLoading ? <LoadingSpinner /> :
                     <div>
-                        <Link to="/dashboard/add-tour-package" className="btn rounded-sm bg-primary btn-md text-white px-10">Add New Package</Link>
+                        <Link to="/dashboard/add-tourist-visa" className="btn rounded-sm bg-primary btn-md text-white px-10">Add New Package</Link>
                         <Table data={data} />
                     </div>
             }
