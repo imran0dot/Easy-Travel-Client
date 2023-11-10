@@ -5,7 +5,7 @@ import LoadingSpinner from "../../../components/base/LoadingSpinner";
 import useData from "../../../hooks/useData";
 
 const StudentVisaList = () => {
-    const { data, refetch, isPending, isLoading } = useData('tour-package');
+    const { data, refetch, isPending, isLoading } = useData('student-visa');
 
     return (
         <div>
@@ -13,7 +13,7 @@ const StudentVisaList = () => {
             {
                 isPending || isLoading ? <LoadingSpinner /> :
                     <div>
-                        <Link to="/dashboard/add-tour-package" className="btn rounded-sm bg-primary btn-md text-white px-10">Add New Package</Link>
+                        <Link to="/dashboard/add-student-visa" className="btn rounded-sm bg-primary btn-md text-white px-10">Add New Package</Link>
                         <Table data={data} />
                     </div>
             }

@@ -5,7 +5,7 @@ import Table from "../../Components/Table";
 import useData from "../../../hooks/useData";
 
 const TouristVisaList = () => {
-    const { data, refetch, isPending, isLoading } = useData('tour-package');
+    const { data, refetch, isPending, isLoading } = useData('tourist-visa');
     return (
         <div>
              <Head title="Tourist Visa List" />
