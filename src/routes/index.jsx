@@ -14,8 +14,8 @@ import AddTourist from '../Dashboard/Pages/AddTourist';
 import TourPackageList from '../Dashboard/Pages/TourPackageList';
 import PrivateRoute from '../Providers/PrivateRoute';
 import Login from '../pages/Login';
-import TouristVisaList from '../Dashboard/Pages/TouristVisa';
 import StudentVisaList from '../Dashboard/Pages/StudentVisaList';
+import TouristVisaList from '../Dashboard/Pages/TouristVisaList';
 
 const router = createBrowserRouter([
     {
