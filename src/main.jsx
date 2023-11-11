@@ -16,6 +16,8 @@ const queryClient = new QueryClient()
 
 axios.defaults.baseURL = 'http://localhost:3000/';
 
+axios.defaults.headers.common['Authorization'] = `Bearer ${document.cookie}`
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>

@@ -18,7 +18,6 @@ import TouristVisaList from '../Dashboard/Pages/TouristVisaList';
 import AddTouristVisa from '../Dashboard/Pages/AddTourist';
 import AddTourPackage from '../Dashboard/Pages/AddTourPackage';
 import AddStudentVisa from '../Dashboard/Pages/AddStudentVisa';
-import axios from 'axios';
 
 const router = createBrowserRouter([
     {

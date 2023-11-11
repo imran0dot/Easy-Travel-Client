@@ -4,6 +4,7 @@ import { app } from '../../Fireabase';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 export const Auth = createContext(null);
 const AuthProvider = ({ children }) => {
@@ -24,7 +25,7 @@ const AuthProvider = ({ children }) => {
             setUserLoading(false);
         })
     }
-    
+
     const loginUser = (email, password) => {
         setUserLoading(true);
         signInWithEmailAndPassword(auth, email, password)
@@ -52,6 +53,13 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         setUserLoading(true);
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                axios.post('jwt', { email: currentUser.email })
+                    .then(res => document.cookie = `token=${res.data}`)
+                    .catch(err => {
+                        console.error('Error:', err);
+                    });
+            }
             setUser(currentUser);
             setUserLoading(false);
         })

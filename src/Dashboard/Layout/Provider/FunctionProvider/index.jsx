@@ -139,8 +139,7 @@ const FuntionProvider = ({ children }) => {
 
 
 
-    const handleSubmit = async(postAPi) => {
-        console.log(postAPi);
+    const handleSubmit = async (postAPi) => {
         const data = {
             title,
             content,
@@ -166,19 +165,19 @@ const FuntionProvider = ({ children }) => {
                     toast.success("post has been updated!")
                 }
             })
-        }catch(error){
+        } catch (error) {
             toast.error("Something went Wrong! Please Full Fill All Require Items")
         }
     }
 
     const handleDeleteSinglePost = (id, api, refetch) => {
         axios.delete(`${api}/${id}`)
-        .then(() => {
-            refetch();
-            toast.success("item deleted")
-        }).catch((err) => {
-            toast.error(`something went wrong ${err}`)
-        })
+            .then(() => {
+                refetch();
+                toast.success("item deleted")
+            }).catch((err) => {
+                toast.error(`something went wrong ${err}`)
+            })
     }
 
     useEffect(() => {
