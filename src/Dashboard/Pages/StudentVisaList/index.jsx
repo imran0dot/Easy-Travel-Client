@@ -8,7 +8,7 @@ import { Functions } from "../../Layout/Provider/FunctionProvider";
 
 const StudentVisaList = () => {
     const { data, refetch, isPending, isLoading } = useData('student-visa');
-    const { handleDeleteSinglePost } = useContext(Functions)
+    const { handleDeleteSinglePost } = useContext(Functions);
 
     const functions = {
         api: "student-visa",

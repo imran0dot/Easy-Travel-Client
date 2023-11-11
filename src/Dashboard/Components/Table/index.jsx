@@ -19,7 +19,6 @@ const Table = ({ data, functions }) => {
                                 <tr className="border border-black">
                                     <th></th>
                                     <th>Title</th>
-                                    <th>Details</th>
                                     <th>Time</th>
                                     <th>Edit</th>
                                 </tr>
@@ -31,7 +30,6 @@ const Table = ({ data, functions }) => {
                                             <tr key={index} className="border border-black">
                                                 <th>{index + 1}</th>
                                                 <td>{item?.title}</td>
-                                                <td dangerouslySetInnerHTML={({ __html: item?.content })}></td>
                                                 <td>{item?.time}</td>
                                                 <td>
                                                     <DeleteBtn handleRemove={() => handleDeleteSinglePost(item?._id, api, refetch)} className="btn-sm" />
