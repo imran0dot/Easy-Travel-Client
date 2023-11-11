@@ -1,6 +1,7 @@
 import DeleteBtn from "../../../components/base/DeleteBtn";
 
-const Table = ({ data, handleDelete }) => {
+const Table = ({ data, functions }) => {
+    const {api,  handleDeleteSinglePost, refetch} = functions;
     return (
         <div>
             {
@@ -33,7 +34,7 @@ const Table = ({ data, handleDelete }) => {
                                                 <td dangerouslySetInnerHTML={({ __html: item?.content })}></td>
                                                 <td>{item?.time}</td>
                                                 <td>
-                                                    <DeleteBtn handleRemove={() => handleDelete(item?._id)} className="btn-sm" />
+                                                    <DeleteBtn handleRemove={() => handleDeleteSinglePost(item?._id, api, refetch)} className="btn-sm" />
 
                                                     <button className="btn btn-sm bg-green-600 text-white">Edit</button></td>
                                             </tr>

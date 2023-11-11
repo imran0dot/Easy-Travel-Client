@@ -149,8 +149,6 @@ const FuntionProvider = ({ children }) => {
             excludes,
             custom,
         }
-
-
         try {
             axios.post(postAPi, data).then(res => {
                 if (res.status === 200) {
@@ -173,6 +171,15 @@ const FuntionProvider = ({ children }) => {
         }
     }
 
+    const handleDeleteSinglePost = (id, api, refetch) => {
+        axios.delete(`${api}/${id}`)
+        .then(() => {
+            refetch();
+            toast.success("item deleted")
+        }).catch((err) => {
+            toast.error(`something went wrong ${err}`)
+        })
+    }
 
     useEffect(() => {
         localStorage.setItem("custom", JSON.stringify(custom));
@@ -213,7 +220,8 @@ const FuntionProvider = ({ children }) => {
         handleRemoveCustomInput,
         handleSubmit,
         customFildHeading,
-        addCustomFiledHandle
+        addCustomFiledHandle,
+        handleDeleteSinglePost
     }
 
     return (
