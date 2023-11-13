@@ -2,15 +2,18 @@
     "dashboardNev": [
         {
             "label": "Tour Packages",
-            "link": "/dashboard/tour-packages-list"
+            "link": "/dashboard/tour-packages-list",
+            "icon": "MdOutlineTour"
         },
         {
             "label": "Tourist Visa",
-            "link": "/dashboard/tourist-visa"
+            "link": "/dashboard/tourist-visa",
+            "icon": "MdOutlineDownhillSkiing"
         },
         {
             "label": "Student Visa",
-            "link": "/dashboard/student-visa"
+            "link": "/dashboard/student-visa",
+            "icon": "FaUserGraduate"
         }
     ]
 }

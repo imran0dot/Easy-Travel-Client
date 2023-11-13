@@ -46,6 +46,7 @@ const AuthProvider = ({ children }) => {
             .then(() => {
                 toast.success("Logout");
                 setUserLoading(false);
+                localStorage.clear();
             }).catch(() => setUserLoading(false))
     }
 
@@ -55,7 +56,7 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
                 axios.post('jwt', { email: currentUser.email })
-                    .then(res => document.cookie = `token=${res.data}`)
+                    .then(res => localStorage.setItem('token', res.data))
                     .catch(err => {
                         console.error('Error:', err);
                     });

@@ -7,7 +7,7 @@ import { BallTriangle } from 'react-loader-spinner';
 const FileUploadInput = ({ handleChange, handleRemove, imgSrc, loading }) => {
 
     return (
-        <div className='w-[600px]'>
+        <div className='w-full'>
             <SimpleBoxContainer>
                 <SimpleHeading heading="Feature Image" />
                 {imgSrc?.display_url ?

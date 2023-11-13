@@ -1,7 +1,8 @@
 import DeleteBtn from "../../../components/base/DeleteBtn";
-
+import { AiOutlineEdit } from "react-icons/ai"
 const Table = ({ data, functions }) => {
-    const {api,  handleDeleteSinglePost, refetch} = functions;
+    const { api, handleDeleteSinglePost, refetch } = functions;
+    console.log(data);
     return (
         <div>
             {
@@ -30,11 +31,10 @@ const Table = ({ data, functions }) => {
                                             <tr key={index} className="border border-black">
                                                 <th>{index + 1}</th>
                                                 <td>{item?.title}</td>
-                                                <td>{item?.time}</td>
+                                                <td>{item?.date}</td>
                                                 <td>
                                                     <DeleteBtn handleRemove={() => handleDeleteSinglePost(item?._id, api, refetch)} className="btn-sm" />
-
-                                                    <button className="btn btn-sm bg-green-600 text-white">Edit</button></td>
+                                                    <button className="btn border-none btn-sm bg-green-600 hover:bg-green-900 text-white rounded-sm z-10">Edit <AiOutlineEdit /> </button></td>
                                             </tr>
                                         )
                                     })

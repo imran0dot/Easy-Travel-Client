@@ -16,7 +16,7 @@ const queryClient = new QueryClient()
 
 axios.defaults.baseURL = 'http://localhost:3000/';
 
-axios.defaults.headers.common['Authorization'] = `Bearer ${document.cookie}`
+axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
