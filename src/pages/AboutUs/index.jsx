@@ -1,6 +1,5 @@
 import Title from "@components/base/Title";
 import Container from "@components/base/Container";
-import Button from "@components/base/Button";
 import sectionBG from "@/assets/images/para-16.png"
 import sectionPackage from "@/assets/images/river.jpeg"
 import icon1 from "@/assets/images/icons/icon-01.png"
@@ -14,33 +13,33 @@ const AboutUs = () => {
     const vacationInfo = [
         {
             icon: icon1,
-            label: "Airline Tickets",
-            info: "Our travel agency specializes in providing our customers with the best deals on airline tickets."
+            label: "Air Ticket",
+            info: "We Are Provide all IATA Member Airlines Domestic And International Cheap Air Ticket For all Over the World All destinations"
         },
         {
             icon: icon2,
-            label: "Airline Tickets",
-            info: "Our travel agency specializes in providing our customers with the best deals on airline tickets."
+            label: "Visa Process",
+            info: "We Are Provide Visa Processing Service for Thailand, Singapore, Malaysia, Indonesia, China , Hong Kong, and Umrah Hajj Visa"
         },
         {
             icon: icon3,
-            label: "Airline Tickets",
-            info: "Our travel agency specializes in providing our customers with the best deals on airline tickets."
+            label: "Hotel Booking",
+            info: "All Over the World All categories of accommodations, Like economic, budget, deluxe, luxury, heritage, palace - hotels & resorts, also tent, camp, cottages bookings for specified tours and stay"
         },
         {
             icon: icon4,
-            label: "Airline Tickets",
-            info: "Our travel agency specializes in providing our customers with the best deals on airline tickets."
+            label: "Student Visa",
+            info: "we also process all country student visa as per candidate requirement."
         },
         {
             icon: icon5,
-            label: "Airline Tickets",
-            info: "Our travel agency specializes in providing our customers with the best deals on airline tickets."
+            label: "Package Tour",
+            info: "Tailor-made, customized for groups & individuals, incentive, educational, business, corporate and professionals"
         },
         {
             icon: icon6,
-            label: "Airline Tickets",
-            info: "Our travel agency specializes in providing our customers with the best deals on airline tickets."
+            label: "Train Ticket",
+            info: "India"
         }
     ]
 
@@ -53,32 +52,24 @@ const AboutUs = () => {
     }
     return (
         <div>
-            
+
             <div>
                 <Container>
-                    <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-10 my-20">
-
-                        <div>
-                            <Title title="Explore the world with us, one adventure at a time." subTitle="The perfect   vacation   come true with our Travel Agency" />
-                            <hr />
+                        <div className="my-10">
                             <p className="my-5">
-                                We are a team of experienced travel experts who specialize in planning and organizing unforgettable travel experiences for our clients with a wide range of travel services, including flight bookings, hotel reservations and more.
+                                Easy Travels is a professional Travel Agent in Bangladesh. We are offering customize and packages tours for individuals, groups, travel agencies, institutions, students and family.
                             </p>
-                            <Button>Call Now</Button>
+                            <p>
+                                If you are planning a holiday in Thailand, Malaysia, Singapore, Dubai, Nepal, Bhutan, India, Sri Lanka, Maldives or any other destinations of your choice in the world, just let us know your tour requirements (number of guests, start date of tour, length of stay, cities or places you want to visit, class of hotel or hospitality you desire and estimative travel budget per person) and we will arrange and operate the best tour for you.
+                            </p>
                         </div>
-
-                        <div>
-                            <img className="rounded-lg" src="https://ttgasia.2017.ttgasia.com/wp-content/uploads/sites/2/2020/02/A-list-Travel-Solutions.jpg" alt="" />
-                        </div>
-
-                    </div>
                 </Container>
             </div>
 
 
             <div className="py-20" style={styled}>
                 <Container>
-                    <Title title="Let us help you plan your next adventure" subTitle="Perfect Vacation come True" />
+                    <Title title="" subTitle="Our Services" />
                     <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
                         {
                             vacationInfo?.map((info, index) => {

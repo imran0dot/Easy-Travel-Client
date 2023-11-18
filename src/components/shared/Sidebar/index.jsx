@@ -6,26 +6,26 @@ const Sidebar = () => {
     const contactInfo = [
         {
             label: "Have Question?",
-            value: "01926629854",
-            link: "#",
+            value: "01911950958",
+            link: "tel:01911950958",
             icon: <BsTelephoneOutboundFill />
         },
         {
             label: "Facebook",
-            value: "Al.Hussain.Imran",
+            value: "Easy Travel's",
             link: "https://www.facebook.com/Al.Hussain.Imran/",
             icon: <BsFacebook />
         },
         {
-            label: "Whats app",
-            value: "01926629854",
-            link: "#",
+            label: "What's app",
+            value: "01911950958",
+            link: "https://wa.me/+880191950958",
             icon: <BsWhatsapp />
         },
         {
             label: "Location",
-            value: "Mohammadpur Dhaka, C-Block 140",
-            link: "#",
+            value: "Suite#1406 (Lift 13), Shah Ali Plaza,Mirpur 10 Roundabout, Dhaka 1216.",
+            link: "https://maps.app.goo.gl/fwQhkLuMAtVJ3ewY6",
             icon: <FaMapMarkerAlt />
         }
     ]

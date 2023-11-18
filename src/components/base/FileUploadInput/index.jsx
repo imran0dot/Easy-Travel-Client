@@ -3,9 +3,38 @@ import SimpleHeading from '../SimpleHeading';
 import { BsCloudUploadFill } from 'react-icons/bs'
 import DeleteBtn from '../DeleteBtn';
 import { BallTriangle } from 'react-loader-spinner';
+import axios from 'axios';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
-const FileUploadInput = ({ handleChange, handleRemove, imgSrc, loading }) => {
+const FileUploadInput = ({ handleRemove, imgSrc }) => {
+    const [loading, setLoading] = useState(false);
+    const [image, setImage] = useState(null);
+    const handleFeatureImageChange = (e) => {
+        setLoading(true);
+        const file = e.target.files[0];
+        const formData = new FormData();
+        formData.append("image", file);
+        formData.append("upload_preset", import.meta.env.VITE_PRESET)
+        
+        axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUD}/image/upload`, formData)
+        .then(res => setImage(res.data.secure_url))
+        .catch(err => toast.error('somthing went wrong' + err));
 
+        // axios.post(import.meta.env.VITE_HOST_KEY, formData)
+        //     .then(res => {
+        //         const data = res.data.data;
+        //         const imgData = {
+        //             display_url: data.display_url,
+        //             delete_url: data.delete_url,
+        //         }
+        //         localStorage.setItem('img', JSON.stringify(imgData));
+        //         setFeatureImage(imgData);
+        //         setLoading(false)
+        //     })
+
+        setLoading(false);
+    }
     return (
         <div className='w-full'>
             <SimpleBoxContainer>
@@ -25,16 +54,16 @@ const FileUploadInput = ({ handleChange, handleRemove, imgSrc, loading }) => {
                                 visible={true}
                             />
                         </div>}
-                        <img className='w-full object-cover center' src={imgSrc.display_url} alt='image' />
+                        <img className='w-full object-cover center' src={image} alt='image' />
                     </div> : <div>
 
                         <label htmlFor="image" className="w-full cursor-pointer" >
-                            <div className="text-center text-7xl font-bold h-96 border flex flex-col justify-center items-center">
+                            <div className="text-center text-4xl font-bold h-96 border flex flex-col justify-center items-center">
                                 <BsCloudUploadFill />
                                 Upload
                             </div>
                         </label>
-                        <input onChange={handleChange} className="hidden" type="file" id="image" accept="image/*" />
+                        <input onChange={handleFeatureImageChange} className="hidden" type="file" id="image" accept="image/*" />
 
                     </div>}
             </SimpleBoxContainer>

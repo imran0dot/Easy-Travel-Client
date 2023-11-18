@@ -14,7 +14,9 @@ import {
 
 const queryClient = new QueryClient()
 
+// axios.defaults.baseURL = 'https://easy-detectiveseo.vercel.app/';
 axios.defaults.baseURL = 'http://localhost:3000/';
+// axios.defaults.baseURL = 'https://backendmongoose.vercel.app/';
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
 

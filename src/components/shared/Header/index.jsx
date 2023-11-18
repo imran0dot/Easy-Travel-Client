@@ -19,7 +19,7 @@ const Header = () => {
     }, [])
 
     return (
-        <div>
+        <div className="relative z-50">
             <TopBar />
 
             <div className="h-[100px] border-b">

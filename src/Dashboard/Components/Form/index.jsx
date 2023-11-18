@@ -14,9 +14,7 @@ const Form = ({ postAPi, category }) => {
         handleTitleChange,
         handleRemoveFeatureImage,
         featureImage,
-        handleFeatureImageChange,
-        handleSubmit,
-        loading } = useContext(Functions);
+        handleSubmit } = useContext(Functions);
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -51,10 +49,8 @@ const Form = ({ postAPi, category }) => {
                         }
 
                         <FileUploadInput
-                            handleChange={handleFeatureImageChange}
                             handleRemove={handleRemoveFeatureImage}
                             imgSrc={featureImage}
-                            loading={loading}
                         />
                     </div>
                 </div>

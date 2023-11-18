@@ -1,16 +1,17 @@
-import { Blocks } from 'react-loader-spinner';
+import { Triangle } from 'react-loader-spinner';
 
 const LoadingSpinner = () => {
     return (
-        <div className='absolute left-0 right-0 bottom-0 top-0 flex justify-center items-center'>
-            <Blocks
-                visible={true}
-                height="80"
-                width="80"
-                ariaLabel="blocks-loading"
-                wrapperStyle={{}}
-                wrapperClass="blocks-wrapper"
-            />
+        <div className='min-h-[70vh] flex justify-center items-center'>
+            <Triangle
+  height="80"
+  width="80"
+  color="#002C73"
+  ariaLabel="triangle-loading"
+  wrapperStyle={{}}
+  wrapperClassName=""
+  visible={true}
+/>
         </div>
     );
 };

@@ -1,8 +1,8 @@
 {
   "navItems": [
     {
-      "label": "Tour Packages",
-      "link": "/tour-packages"
+      "label": "Air Ticket",
+      "link": "/air-ticket"
     },
     {
       "label": "Tourist Visa",
@@ -13,8 +13,8 @@
       "link": "/student-visa"
     },
     {
-      "label": "Air Ticket",
-      "link": "/air-ticket"
+      "label": "Tour Packages",
+      "link": "/tour-packages"
     },
     {
       "label": "Hotel Booking",

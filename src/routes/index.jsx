@@ -18,6 +18,8 @@ import TouristVisaList from '../Dashboard/Pages/TouristVisaList';
 import AddTouristVisa from '../Dashboard/Pages/AddTourist';
 import AddTourPackage from '../Dashboard/Pages/AddTourPackage';
 import AddStudentVisa from '../Dashboard/Pages/AddStudentVisa';
+import PrivacyPolicy from '../pages/PrivacyPolicy';
+import TermsAndCondition from '../pages/TermsAndCondition';
 
 const router = createBrowserRouter([
     {
@@ -59,6 +61,14 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login />
+            },
+            {
+                path: "/privacy-policy",
+                element: <PrivacyPolicy />
+            },
+            {
+                path: "/terms-and-condition",
+                element: <TermsAndCondition />
             }
         ]
     },

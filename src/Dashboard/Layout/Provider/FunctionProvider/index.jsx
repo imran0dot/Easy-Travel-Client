@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { useState } from "react";
 import { createContext, useEffect } from "react";
 import { toast } from "react-toastify";
+import { Cloudinary } from "@cloudinary/url-gen";
+
 
 export const Functions = createContext(null);
 
@@ -45,26 +47,6 @@ const FuntionProvider = ({ children }) => {
         setExcludes(values);
     };
 
-
-    const handleFeatureImageChange = (e) => {
-        setLoading(true)
-        const file = e.target.files[0];
-        const formData = new FormData();
-        formData.append("image", file);
-
-
-        axios.post(import.meta.env.VITE_HOST_KEY, formData)
-            .then(res => {
-                const data = res.data.data;
-                const imgData = {
-                    display_url: data.display_url,
-                    delete_url: data.delete_url,
-                }
-                localStorage.setItem('img', JSON.stringify(imgData));
-                setFeatureImage(imgData);
-                setLoading(false)
-            })
-    }
 
     const handleCustomInputChange = (index, event, blockIndex) => {
         const values = [...custom];
@@ -207,7 +189,6 @@ const FuntionProvider = ({ children }) => {
         handleContentChange,
         handleIncludesChange,
         handleExcludesChange,
-        handleFeatureImageChange,
         handleCustomInputChange,
         handleAddIncludes,
         handleRemoveFeatureImage,
