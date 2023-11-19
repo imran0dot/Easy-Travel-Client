@@ -3,7 +3,6 @@ import DeleteBtn from "../../../components/base/DeleteBtn";
 import { AiOutlineEdit } from "react-icons/ai"
 const Table = ({ data, functions }) => {
     const { api, handleDeleteSinglePost, refetch } = functions;
-    console.log(data);
     return (
         <div>
             {

@@ -1,12 +1,20 @@
 import { useLocation, useParams } from "react-router-dom";
 import Form from "../../Components/Form";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 const UpdatePost = () => {
+    const [placeHolder, setPlaceHolder] = useState({});
     const { pathname } = useLocation();
-    const apiUrl = pathname.split('/')[2];
-    const {id} = useParams();
+    const urlPath = pathname.split('/')[2];
+    const { id } = useParams();
+    const apiUrl = urlPath + "/" + id
+    useEffect(() => {
+        axios(apiUrl).then(res => setPlaceHolder(res.data)).catch(() => toast.error("data not found!"))
+    }, []);
 
 
-    return <Form api={{ type: "put", apiUrl: apiUrl + "/" + id }} />
+    return <Form api={{ type: "put", apiUrl }}  placeHolder={placeHolder}/>
 
 };
 

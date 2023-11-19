@@ -5,21 +5,23 @@ import InputFiled from "../../../components/base/InputFiled";
 import SimpleHeading from "../../../components/base/SimpleHeading";
 import SimpleBoxContainer from "../../../components/base/SimpleBoxContainer";
 import FileUploadInput from "../../../components/base/FileUploadInput";
-import IncludeExcludeForm from "../../Components/IncludeExcludeForm";
 import TextEditor from "../../../components/base/TextEditor";
 
-const Form = ({ api, category }) => {
+const Form = ({ api, category, placeHolder }) => {
     const {
         title,
         handleTitleChange,
         handleRemoveFeatureImage,
         featureImage,
+        content,
+        handleContentChange,
         handleSubmit } = useContext(Functions);
 
     const submitForm = (e) => {
         e.preventDefault();
         handleSubmit(api)
     }
+
     return (
         <div>
             <form onSubmit={submitForm} className="flex flex-col gap-10 w-full">
@@ -27,12 +29,12 @@ const Form = ({ api, category }) => {
                     <div className="flex flex-col  gap-10 w-8/12">
                         <SimpleBoxContainer>
                             <SimpleHeading heading="Title" />
-                            <InputFiled input={title} handleChange={handleTitleChange} />
+                            <InputFiled input={placeHolder ? placeHolder?.title : title} onChange={handleTitleChange}  />
                         </SimpleBoxContainer>
 
-                        <TextEditor />
-
-                        <IncludeExcludeForm />
+                        <TextEditor
+                            handleChange={handleContentChange} 
+                            content={placeHolder ? placeHolder?.content : content} />
                         <CustomFiled />
                     </div>
 

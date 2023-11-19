@@ -8,16 +8,10 @@ import { toast } from "react-toastify";
 export const Functions = createContext(null);
 
 const FuntionProvider = ({ children }) => {
-    const storedIncludesItems = localStorage.getItem("includes");
-    const storedExcludesItems = localStorage.getItem("excludes");
     const storedCustomItems = localStorage.getItem("custom");
-    const cheakIncludedItems = JSON.parse(storedIncludesItems)?.length <= 0;
-    const cheakExcludesItems = JSON.parse(storedExcludesItems)?.length <= 0;
     const [title, setTitle] = useState(localStorage.getItem("title") || "");
     const [content, setContent] = useState(localStorage.getItem("content") || "");
     const [featureImage, setFeatureImage] = useState(JSON.parse(localStorage.getItem("img")) || {});
-    const [includes, setIncludes] = useState([cheakIncludedItems && JSON.parse(storedIncludesItems) || ""]);
-    const [excludes, setExcludes] = useState([cheakExcludesItems && JSON.parse(storedExcludesItems) || ""]);
     const [custom, setCustom] = useState([]);
 
 
@@ -31,21 +25,6 @@ const FuntionProvider = ({ children }) => {
         localStorage.setItem('content', newContent)
     }
 
-    const handleIncludesChange = (index, event) => {
-        const values = [...includes];
-        values[index] = event.target.value;
-        localStorage.setItem("includes", JSON.stringify(values));
-        setIncludes(values);
-    };
-
-    const handleExcludesChange = (index, event) => {
-        const values = [...excludes];
-        values[index] = event.target.value;
-        localStorage.setItem("excludes", JSON.stringify(values));
-        setExcludes(values);
-    };
-
-
     const handleCustomInputChange = (index, event, blockIndex) => {
         const values = [...custom];
         values[blockIndex].data[index] = event.target.value;
@@ -54,17 +33,6 @@ const FuntionProvider = ({ children }) => {
     };
 
 
-    const handleAddIncludes = () => {
-        const values = [...includes];
-        values.push("");
-        setIncludes(values);
-    };
-
-    const handleAddExcludes = () => {
-        const values = [...excludes];
-        values.push("");
-        setExcludes(values);
-    };
 
     const handleAddCustomInput = (index) => {
         const values = [...custom];
@@ -73,24 +41,12 @@ const FuntionProvider = ({ children }) => {
     }
 
 
-    const handleRemoveIncludes = (index) => {
-        const values = [...includes];
-        values.splice(index, 1);
-        localStorage.setItem("includes", JSON.stringify(values));
-        setIncludes(values);
-    };
-
     const handleRemoveFeatureImage = () => {
         axios.delete(featureImage.delete_url).then(res => console.log(res));
         localStorage.removeItem('img');
         setFeatureImage("")
     }
-    const handleRemoveExcludes = (index) => {
-        const values = [...excludes];
-        values.splice(index, 1);
-        localStorage.setItem("excludes", JSON.stringify(values));
-        setExcludes(values);
-    };
+ 
 
     const handleRemoveCustomInput = (dataIndex, blockIndex) => {
         const values = [...custom];
@@ -107,9 +63,7 @@ const FuntionProvider = ({ children }) => {
     };
 
 
-
     // custom file input chnage 
-
     const customFildHeading = useRef(null);
     const addCustomFiledHandle = () => {
         const headText = customFildHeading.current.value;
@@ -121,14 +75,11 @@ const FuntionProvider = ({ children }) => {
 
     const handleSubmit = async (api) => {
         const {type, apiUrl} = api;
-        console.log(type, apiUrl)
 
         const data = {
             title,
             content,
             featureImage,
-            includes,
-            excludes,
             custom,
         }
 
@@ -139,14 +90,10 @@ const FuntionProvider = ({ children }) => {
                     if (res.status === 200) {
                         setTitle("")
                         setContent("")
-                        setIncludes([""])
-                        setExcludes([""])
                         setCustom([])
                         setFeatureImage("")
                         localStorage.removeItem("title")
                         localStorage.removeItem("content")
-                        localStorage.removeItem("includes")
-                        localStorage.removeItem("excludes")
                         localStorage.removeItem("custom")
                         localStorage.removeItem("img");
                         toast.success("post has been updated!")
@@ -169,14 +116,10 @@ const FuntionProvider = ({ children }) => {
                     if (res.status === 200) {
                         setTitle("")
                         setContent("")
-                        setIncludes([""])
-                        setExcludes([""])
                         setCustom([])
                         setFeatureImage("")
                         localStorage.removeItem("title")
                         localStorage.removeItem("content")
-                        localStorage.removeItem("includes")
-                        localStorage.removeItem("excludes")
                         localStorage.removeItem("custom")
                         localStorage.removeItem("img");
                         toast.success("post has been updated!")
@@ -209,8 +152,6 @@ const FuntionProvider = ({ children }) => {
 
 
     useEffect(() => {
-        storedIncludesItems && setIncludes(JSON.parse(storedIncludesItems));
-        storedExcludesItems && setExcludes(JSON.parse(storedExcludesItems));
         storedCustomItems && setCustom(JSON.parse(storedCustomItems))
     }, []);
 
@@ -218,24 +159,14 @@ const FuntionProvider = ({ children }) => {
     const funtions = {
         title,
         content,
-        includes,
-        setIncludes,
         featureImage,
-        excludes,
-        setExcludes,
         custom,
         setCustom,
         handleTitleChange,
         handleContentChange,
-        handleIncludesChange,
-        handleExcludesChange,
         handleCustomInputChange,
-        handleAddIncludes,
         handleRemoveFeatureImage,
-        handleAddExcludes,
         handleAddCustomInput,
-        handleRemoveIncludes,
-        handleRemoveExcludes,
         handleRemoveCustom,
         handleRemoveCustomInput,
         handleSubmit,
