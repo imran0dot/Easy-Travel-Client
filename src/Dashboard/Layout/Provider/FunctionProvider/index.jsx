@@ -119,7 +119,10 @@ const FuntionProvider = ({ children }) => {
 
 
 
-    const handleSubmit = async (postAPi) => {
+    const handleSubmit = async (api) => {
+        const {type, apiUrl} = api;
+        console.log(type, apiUrl)
+
         const data = {
             title,
             content,
@@ -128,25 +131,65 @@ const FuntionProvider = ({ children }) => {
             excludes,
             custom,
         }
-        try {
-            axios.post(postAPi, data).then(res => {
-                if (res.status === 200) {
-                    setTitle("")
-                    setIncludes([""])
-                    setExcludes([""])
-                    setCustom([])
-                    setFeatureImage("")
-                    localStorage.removeItem("title")
-                    localStorage.removeItem("content")
-                    localStorage.removeItem("includes")
-                    localStorage.removeItem("excludes")
-                    localStorage.removeItem("custom")
-                    localStorage.removeItem("img");
-                    toast.success("post has been updated!")
-                }
-            })
-        } catch (error) {
-            toast.error("Something went Wrong! Please Full Fill All Require Items")
+
+        if(type === "put"){
+            try {
+                axios.put(apiUrl, data)
+                .then(res => {
+                    if (res.status === 200) {
+                        setTitle("")
+                        setContent("")
+                        setIncludes([""])
+                        setExcludes([""])
+                        setCustom([])
+                        setFeatureImage("")
+                        localStorage.removeItem("title")
+                        localStorage.removeItem("content")
+                        localStorage.removeItem("includes")
+                        localStorage.removeItem("excludes")
+                        localStorage.removeItem("custom")
+                        localStorage.removeItem("img");
+                        toast.success("post has been updated!")
+                    }else{
+                        toast.error("Something went Wrong! Please Full Fill All Require Items")
+                    }
+                })
+                .catch ((err) => {
+                    toast.error("Something went Wrong!" + err)
+                })
+            } catch (error) {
+                toast.error("Something went Wrong! Please Full Fill All Require Items")
+            }
+        }
+
+        else{
+            try {
+                axios.post(apiUrl, data)
+                .then(res => {
+                    if (res.status === 200) {
+                        setTitle("")
+                        setContent("")
+                        setIncludes([""])
+                        setExcludes([""])
+                        setCustom([])
+                        setFeatureImage("")
+                        localStorage.removeItem("title")
+                        localStorage.removeItem("content")
+                        localStorage.removeItem("includes")
+                        localStorage.removeItem("excludes")
+                        localStorage.removeItem("custom")
+                        localStorage.removeItem("img");
+                        toast.success("post has been updated!")
+                    }else{
+                        toast.error("Something went Wrong! Please Full Fill All Require Items")
+                    }
+                })
+                .catch (() => {
+                    toast.error("Something went Wrong! Please Full Fill All Require Items")
+                })
+            } catch (error) {
+                toast.error("Something went Wrong! Please Full Fill All Require Items")
+            }
         }
     }
 

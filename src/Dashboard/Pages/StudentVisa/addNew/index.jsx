@@ -1,8 +1,8 @@
 import Form from "../../../Components/Form";
-const AddStudentVisa = () => {
+const AddStudentVisa = ({putApi}) => {
     return (
         <div>
-            <Form postAPi="student-visa" />
+            <Form api={{type: putApi ? "put" : "post", apiUrl: putApi? putApi : "student-visa"}} />
         </div>
     );
 };

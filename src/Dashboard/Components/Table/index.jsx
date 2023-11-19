@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import DeleteBtn from "../../../components/base/DeleteBtn";
 import { AiOutlineEdit } from "react-icons/ai"
 const Table = ({ data, functions }) => {
@@ -34,7 +35,10 @@ const Table = ({ data, functions }) => {
                                                 <td>{item?.date}</td>
                                                 <td>
                                                     <DeleteBtn handleRemove={() => handleDeleteSinglePost(item?._id, api, refetch)} className="btn-sm" />
-                                                    <button className="btn border-none btn-sm bg-green-600 hover:bg-green-900 text-white rounded-sm z-10">Edit <AiOutlineEdit /> </button></td>
+
+                                                    <Link to={`update/${item?._id}`} className="btn border-none btn-sm bg-green-600 hover:bg-green-900 text-white rounded-sm z-10">Edit <AiOutlineEdit /> </Link>
+                                                    
+                                                </td>
                                             </tr>
                                         )
                                     })

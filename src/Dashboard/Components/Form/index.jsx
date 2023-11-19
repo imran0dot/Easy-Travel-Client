@@ -8,7 +8,7 @@ import FileUploadInput from "../../../components/base/FileUploadInput";
 import IncludeExcludeForm from "../../Components/IncludeExcludeForm";
 import TextEditor from "../../../components/base/TextEditor";
 
-const Form = ({ postAPi, category }) => {
+const Form = ({ api, category }) => {
     const {
         title,
         handleTitleChange,
@@ -18,7 +18,7 @@ const Form = ({ postAPi, category }) => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        handleSubmit(postAPi)
+        handleSubmit(api)
     }
     return (
         <div>
