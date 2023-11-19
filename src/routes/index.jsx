@@ -16,9 +16,8 @@ import Login from '../pages/Login';
 import AddTourPackage from '../Dashboard/Pages/AddTourPackage';
 import PrivacyPolicy from '../pages/PrivacyPolicy';
 import TermsAndCondition from '../pages/TermsAndCondition';
-import StudentVisaList from '../Dashboard/Pages/StudentVisa/list';
-import TouristVisaList from '../Dashboard/Pages/TouristVisa/list';
-import AddTouristVisa from '../Dashboard/Pages/TouristVisa/addNew';
+import StudentVisaList from '../Dashboard/Pages/StudentVisa';
+import TouristVisaList from '../Dashboard/Pages/TouristVisa';
 import AddPost from '../Dashboard/Pages/addPost';
 import UpdatePost from '../Dashboard/Pages/updatePost';
 
@@ -89,10 +88,13 @@ const router = createBrowserRouter([
                 path: "/dashboard/tourist-visa",
                 element: <TouristVisaList />
             },
-
             {
                 path: "/dashboard/tourist-visa/add-new",
-                element: <AddTouristVisa />
+                element: <AddPost />
+            },
+            {
+                path: "/dashboard/tourist-visa/update/:id",
+                element: <UpdatePost />
             },
             {
                 path: "/dashboard/student-visa",

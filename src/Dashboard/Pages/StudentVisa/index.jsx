@@ -1,25 +1,24 @@
 import { Link } from "react-router-dom";
+import Table from "../../Components/Table";
 import Head from "@components/base/Head";
 import LoadingSpinner from "@components/base/LoadingSpinner";
-import Table from "../../../Components/Table";
-import useData from "../../../../hooks/useData";
+import useData from "../../../hooks/useData";
 import { useContext } from "react";
-import { Functions } from "../../../Layout/Provider/FunctionProvider";
+import { Functions } from "../../Layout/Provider/FunctionProvider";
 
-const TouristVisaList = () => {
-    const { data, refetch, isPending, isLoading } = useData('tourist-visa');
-
-    const { handleDeleteSinglePost } = useContext(Functions)
+const StudentVisaList = () => {
+    const { data, refetch, isPending, isLoading } = useData('student-visa');
+    const { handleDeleteSinglePost } = useContext(Functions);
 
     const functions = {
-        api: "tourist-visa",
+        api: "student-visa",
         handleDeleteSinglePost,
         refetch,
     }
 
     return (
         <div>
-             <Head title="Tourist Visa List" />
+            <Head title="Student Visa List" />
             {
                 isPending || isLoading ? <LoadingSpinner /> :
                     <div>
@@ -31,4 +30,4 @@ const TouristVisaList = () => {
     );
 };
 
-export default TouristVisaList;
+export default StudentVisaList;
