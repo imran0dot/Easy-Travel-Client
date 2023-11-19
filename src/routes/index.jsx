@@ -13,13 +13,13 @@ import DashboardLayout from '../Dashboard/Layout';
 import TourPackageList from '../Dashboard/Pages/TourPackageList';
 import PrivateRoute from '../Providers/PrivateRoute';
 import Login from '../pages/Login';
-import StudentVisaList from '../Dashboard/Pages/StudentVisaList';
-import TouristVisaList from '../Dashboard/Pages/TouristVisaList';
-import AddTouristVisa from '../Dashboard/Pages/AddTourist';
 import AddTourPackage from '../Dashboard/Pages/AddTourPackage';
-import AddStudentVisa from '../Dashboard/Pages/AddStudentVisa';
 import PrivacyPolicy from '../pages/PrivacyPolicy';
 import TermsAndCondition from '../pages/TermsAndCondition';
+import StudentVisaList from '../Dashboard/Pages/StudentVisa/list';
+import AddStudentVisa from '../Dashboard/Pages/StudentVisa/addNew';
+import TouristVisaList from '../Dashboard/Pages/TouristVisa/list';
+import AddTouristVisa from '../Dashboard/Pages/TouristVisa/addNew';
 
 const router = createBrowserRouter([
     {
@@ -88,18 +88,23 @@ const router = createBrowserRouter([
                 path: "/dashboard/tourist-visa",
                 element: <TouristVisaList />
             },
+
             {
-                path: "/dashboard/add-tourist-visa",
+                path: "/dashboard/tourist-visa/add-new",
                 element: <AddTouristVisa />
             },
             {
                 path: "/dashboard/student-visa",
-                element: <StudentVisaList />
+                element: <StudentVisaList />,
             },
             {
-                path: "/dashboard/add-student-visa",
-                element: <AddStudentVisa />
+                path: "/dashboard/student-visa/add-new",
+                element: <AddStudentVisa />,
             },
+            {
+                path: "/dashboard/student-visa/update-one/:id",
+                element: <AddStudentVisa />,
+            }
         ]
     },
     {

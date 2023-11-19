@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { useState } from "react";
 import { createContext, useEffect } from "react";
 import { toast } from "react-toastify";
-import { Cloudinary } from "@cloudinary/url-gen";
 
 
 export const Functions = createContext(null);
@@ -14,7 +13,6 @@ const FuntionProvider = ({ children }) => {
     const storedCustomItems = localStorage.getItem("custom");
     const cheakIncludedItems = JSON.parse(storedIncludesItems)?.length <= 0;
     const cheakExcludesItems = JSON.parse(storedExcludesItems)?.length <= 0;
-    const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState(localStorage.getItem("title") || "");
     const [content, setContent] = useState(localStorage.getItem("content") || "");
     const [featureImage, setFeatureImage] = useState(JSON.parse(localStorage.getItem("img")) || {});
@@ -175,7 +173,6 @@ const FuntionProvider = ({ children }) => {
 
 
     const funtions = {
-        loading,
         title,
         content,
         includes,
