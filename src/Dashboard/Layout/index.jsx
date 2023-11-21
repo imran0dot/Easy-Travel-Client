@@ -11,7 +11,7 @@ const DashboardLayout = () => {
                 <div className="w-2/12">
                     <DashboardSidebar />
                 </div>
-                <div className="p-5 w-10/12 bg-slate-200">
+                <div className="p-5 w-10/12 bg-slate-200 pt-32">
                     <FuntionProvider>
                         <Outlet />
                     </FuntionProvider>

@@ -1,9 +1,9 @@
-import ComingSoon from "../ComingSoon";
+import AirTicketImg from "/src/assets/images/airTicket.gif";
 
 const AirTicket = () => {
     return (
         <div>
-            <ComingSoon />
+            <img src={AirTicketImg} alt="" width="100%" />
         </div>
     );
 };

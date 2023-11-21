@@ -33,7 +33,7 @@ const Table = ({ data, functions }) => {
                                                 <td>{item?.title}</td>
                                                 <td>{item?.date}</td>
                                                 <td>
-                                                    <DeleteBtn handleRemove={() => handleDeleteSinglePost(item?._id, api, refetch)} className="btn-sm" />
+                                                    <DeleteBtn handleRemove={() => handleDeleteSinglePost(item?._id, api, refetch)} className="btn-sm">Delete</DeleteBtn>
 
                                                     <Link to={`update/${item?._id}`} className="btn border-none btn-sm bg-green-600 hover:bg-green-900 text-white rounded-sm z-10">Edit <AiOutlineEdit /> </Link>
                                                     

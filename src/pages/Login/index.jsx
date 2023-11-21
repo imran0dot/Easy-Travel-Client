@@ -49,8 +49,15 @@ const Login = () => {
                             </button>
                         </div>
                     </form>
+
+                    <div className='mt-2'>
+                        <p>don't have an account ? Singup</p>
+                    </div>
                 </div>
             }
+
+
+
         </div>
     );
 };

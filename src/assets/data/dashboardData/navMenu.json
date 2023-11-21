@@ -15,5 +15,19 @@
             "link": "/dashboard/student-visa",
             "icon": "FaUserGraduate"
         }
+    ],
+
+
+    "dashboardFooter": [
+        {
+            "label": "Users",
+            "link": "/dashboard/all-users",
+            "icon": "MdOutlineTour"
+        },
+        {
+            "label": "Settings",
+            "link": "/dashboard/profile",
+            "icon": "MdOutlineTour"
+        }
     ]
 }
