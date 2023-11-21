@@ -7,11 +7,15 @@ const DashboardLayout = () => {
     return (
         <div>
             <DashboardTopBar />
-            <div className="flex">
-                <div className="w-2/12">
+            <div className="flex max-h-screen">
+
+                {/* SIDEBAR */}
+                <div className="w-2/12 bg-secondary sticky top-0 max-h-screen -mt-28">
                     <DashboardSidebar />
                 </div>
-                <div className="p-5 w-10/12 bg-slate-200 pt-32">
+
+                {/* BODY */}
+                <div className="p-5 w-10/12 bg-slate-200 min-h-screen">
                     <FuntionProvider>
                         <Outlet />
                     </FuntionProvider>

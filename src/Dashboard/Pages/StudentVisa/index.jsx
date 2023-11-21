@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import Table from "../../Components/Table";
 import Head from "@components/base/Head";
 import LoadingSpinner from "@components/base/LoadingSpinner";
 import useData from "../../../hooks/useData";
+import Button from "@components/base/Button";
 import { useContext } from "react";
 import { Functions } from "../../Layout/Provider/FunctionProvider";
 
@@ -22,7 +22,7 @@ const StudentVisaList = () => {
             {
                 isPending || isLoading ? <LoadingSpinner /> :
                     <div>
-                        <Link to="add-new" className="btn rounded-sm bg-primary btn-md text-white px-10">Add New Package</Link>
+                        <Button to="add-new">Add New Package</Button>
                         <Table data={data} functions={functions} />
                     </div>
             }

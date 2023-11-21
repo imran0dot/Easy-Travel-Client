@@ -3,7 +3,7 @@ import Form from "../../Components/Form";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-const UpdatePost = () => {
+const UpdatePost = ({ category }) => {
     const [placeHolder, setPlaceHolder] = useState({});
     const { pathname } = useLocation();
     const urlPath = pathname.split('/')[2];
@@ -14,7 +14,7 @@ const UpdatePost = () => {
     }, []);
 
 
-    return <Form api={{ type: "put", apiUrl }}  placeHolder={placeHolder}/>
+    return <Form category={category ? true : false} api={{ type: "put", apiUrl }} placeHolder={placeHolder} />
 
 };
 

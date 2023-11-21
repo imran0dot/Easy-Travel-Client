@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
 import Head from "@components/base/Head";
 import Table from "../../Components/Table";
 import LoadingSpinner from "../../../components/base/LoadingSpinner";
 import useData from "../../../hooks/useData";
 import { useContext } from "react";
 import { Functions } from "../../Layout/Provider/FunctionProvider";
+import Button from "@components/base/Button";
+
+
 
 const TourPackageList = () => {
     const { data, refetch, isPending, isLoading } = useData('tour-package');
@@ -23,7 +25,7 @@ const TourPackageList = () => {
             {
                 isPending || isLoading ? <LoadingSpinner /> :
                     <div>
-                        <Link to="/dashboard/add-tour-package" className="btn rounded-sm bg-primary btn-md text-white px-10">Add New Package</Link>
+                        <Button to="add-new">Add New Package</Button>
                         <Table data={data} functions={functions} />
                     </div>
             }

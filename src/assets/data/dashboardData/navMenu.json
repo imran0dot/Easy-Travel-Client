@@ -2,7 +2,7 @@
     "dashboardNev": [
         {
             "label": "Tour Packages",
-            "link": "/dashboard/tour-packages-list",
+            "link": "/dashboard/tour-packages",
             "icon": "MdOutlineTour"
         },
         {
@@ -22,12 +22,12 @@
         {
             "label": "Users",
             "link": "/dashboard/all-users",
-            "icon": "MdOutlineTour"
+            "icon": "FaUserAlt"
         },
         {
             "label": "Settings",
             "link": "/dashboard/profile",
-            "icon": "MdOutlineTour"
+            "icon": "IoMdSettings"
         }
     ]
 }

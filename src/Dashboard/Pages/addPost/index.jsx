@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
 import Form from "../../Components/Form";
-const AddPost = () => {
+const AddPost = ({ category }) => {
     const { pathname } = useLocation();
     const apiUrl = pathname.split('/')[2];
 
-    return <Form api={{ type: "post", apiUrl }} />
+    return <Form category={category ? true : false} api={{ type: "post", apiUrl }} />
 
 };
 

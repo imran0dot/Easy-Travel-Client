@@ -77,12 +77,17 @@ const router = createBrowserRouter([
         element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         children: [
             {
-                path: "/dashboard/tour-packages-list",
+                path: "/dashboard/tour-packages",
                 element: <TourPackageList />,
             },
             {
-                path: "/dashboard/add-tour-package",
-                element: <AddTourPackage />
+                path: "/dashboardtour-packages/add-new",
+                element: <AddPost category={true} />
+            },
+            {
+                path: "/dashboardtour-packages/add-new",
+                element: <UpdatePost category={true}  />
+
             },
             {
                 path: "/dashboard/tourist-visa",
