@@ -1,11 +1,13 @@
 import { BsArrowRight } from 'react-icons/bs';
 import SimpleHeading from '../../components/base/SimpleHeading';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Auth } from '../../Providers/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
 import LoadingSpinner from '../../components/base/LoadingSpinner';
 import InputFiled from '../../components/base/InputFiled';
 const Login = () => {
+    const [login, setLogin] = useState(true);
+
     const { loginUser, createUser, user, userLoading } = useContext(Auth);
     const location = useLocation();
     const path = location?.state?.from?.pathname || "/";
@@ -23,9 +25,9 @@ const Login = () => {
         return <Navigate to={path} />
     }
 
-
+console.log(login);
     return (
-        <div className='min-h-screen'>
+        <div className=''>
             {userLoading ? <LoadingSpinner /> :
                 <div className="flex flex-col justify-center items-center md:w-8/12 lg:w-4/12 border mx-auto my-36 p-20">
                     <SimpleHeading className="text-center mb-10" heading="Welcome Back, Log in" subTitle="Please enter your login details" />
@@ -50,8 +52,11 @@ const Login = () => {
                         </div>
                     </form>
 
+{/* TODO */}
                     <div className='mt-2'>
-                        <p>don't have an account ? Singup</p>
+                        {login ?
+                            <p>don't have an account ? <span className='text-secondary' onClick={() => setLogin(false)}> Singup</span></p> :
+                            <p>Do you've already account?<span className='text-secondary' onClick={() => setLogin(true)}> Login</span></p>}
                     </div>
                 </div>
             }

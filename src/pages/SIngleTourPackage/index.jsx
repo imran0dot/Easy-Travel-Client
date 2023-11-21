@@ -20,14 +20,16 @@ const SingleTourPackage = () => {
     return (
         <div>
             {/* top section  */}
-            <TopSection bgImgStyle={bgStyle} title={title? title : ""} />
+            <TopSection bgImgStyle={bgStyle} title={title ? title : ""} />
 
             {/* body */}
             <Container>
-                <div className="flex flex-col lg:flex-row gap-10 my-10 overflow-hidden">
-                    <div dangerouslySetInnerHTML={{__html: content}}></div>
-                    {/* <PackageInfo data={includes} /> */}
-                    <Sidebar />
+                <div className="flex flex-col lg:flex-row gap-10 my-10 overflow-hidden h-full">
+                    <div className="lg:w-8/12" dangerouslySetInnerHTML={{ __html: content }}></div>
+
+                    <div className="lg:w-4/12 relative">
+                        <Sidebar />
+                    </div>
                 </div>
 
                 {/* packages options */}

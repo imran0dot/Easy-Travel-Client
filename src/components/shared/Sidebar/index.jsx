@@ -30,7 +30,6 @@ const Sidebar = () => {
         }
     ]
     return (
-        <div className="lg:w-4/12">
             <div className="shadow-md rounded-lg p-10 sticky top-10">
                 <h4 className="text-center font-bold text-4xl my-10">
                     Have any quation?
@@ -54,8 +53,6 @@ const Sidebar = () => {
                     }
                 </div>
             </div>
-
-        </div>
     );
 };
 

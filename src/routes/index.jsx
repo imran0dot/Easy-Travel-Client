@@ -13,7 +13,6 @@ import DashboardLayout from '../Dashboard/Layout';
 import TourPackageList from '../Dashboard/Pages/TourPackageList';
 import PrivateRoute from '../Providers/PrivateRoute';
 import Login from '../pages/Login';
-import AddTourPackage from '../Dashboard/Pages/AddTourPackage';
 import PrivacyPolicy from '../pages/PrivacyPolicy';
 import TermsAndCondition from '../pages/TermsAndCondition';
 import StudentVisaList from '../Dashboard/Pages/StudentVisa';
