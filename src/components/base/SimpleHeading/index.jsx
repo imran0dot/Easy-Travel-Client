@@ -1,6 +1,9 @@
-const SimpleHeading = ({heading}) => {
+const SimpleHeading = ({ heading, subTitle, className }) => {
     return (
-        <h3 className="font-bold text-3xl mb-3">{heading ? heading : ""}</h3>
+        <div className={className}>
+            <h3 className="font-bold text-3xl mb-3">{heading ? heading : ""}</h3>
+            <p>{subTitle ? subTitle : ""}</p>
+        </div>
 
     );
 };

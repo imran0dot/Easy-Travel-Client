@@ -14,12 +14,11 @@ import {
 
 const queryClient = new QueryClient()
 
-// axios.defaults.baseURL = 'http://localhost:3000/';
-
-axios.defaults.baseURL = 'https://backendmongoose-main-detectiveseo.vercel.app/';
+axios.defaults.baseURL = 'http://localhost:3000/';
+// axios.defaults.baseURL = 'https://backendmongoose-main.vercel.app/';
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+// axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
