@@ -19,6 +19,7 @@ import StudentVisaList from '../Dashboard/Pages/StudentVisa';
 import TouristVisaList from '../Dashboard/Pages/TouristVisa';
 import AddPost from '../Dashboard/Pages/addPost';
 import UpdatePost from '../Dashboard/Pages/updatePost';
+import DashboardMain from '../Dashboard/Pages/main';
 
 const router = createBrowserRouter([
     {
@@ -73,8 +74,15 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+        element:
+            <PrivateRoute>
+                <DashboardLayout />
+            </PrivateRoute>,
         children: [
+            {
+                path: "/dashboard",
+                element: <DashboardMain />
+            },
             {
                 path: "/dashboard/tour-packages",
                 element: <TourPackageList />,
@@ -85,7 +93,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboardtour-packages/add-new",
-                element: <UpdatePost category={true}  />
+                element: <UpdatePost category={true} />
 
             },
             {

@@ -1,5 +1,5 @@
 import { dashboardNev, dashboardFooter } from "@/assets/data/dashboardData/navMenu.json";
-import { MdOutlineDownhillSkiing, MdOutlineTour } from 'react-icons/md'
+import { MdOutlineDownhillSkiing, MdOutlineTour, MdSpaceDashboard } from 'react-icons/md'
 import { FaUserGraduate } from 'react-icons/fa'
 import ActiveRoute from "../../../components/base/ActiveRoute";
 import { Auth } from "../../../Providers/AuthProvider";
@@ -25,6 +25,7 @@ const DashboardSidebar = () => {
                                     {icon === "MdOutlineTour" && <MdOutlineTour />}
                                     {icon === "MdOutlineDownhillSkiing" && <MdOutlineDownhillSkiing />}
                                     {icon === "FaUserGraduate" && <FaUserGraduate />}
+                                    {icon === "MdSpaceDashboard" && <MdSpaceDashboard />}
                                     {label}
                                 </ActiveRoute>
                             </div>

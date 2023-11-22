@@ -1,6 +1,11 @@
 {
     "dashboardNev": [
         {
+            "label": "Dashboard",
+            "link": "/dashboard",
+            "icon": "MdSpaceDashboard"
+        },
+        {
             "label": "Tour Packages",
             "link": "/dashboard/tour-packages",
             "icon": "MdOutlineTour"
