@@ -5,29 +5,36 @@ import DeleteBtn from '../DeleteBtn';
 import axios from 'axios';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import useBase64 from '../../../hooks/useData/useBase64';
 
 const FileUploadInput = () => {
     const [loading, setLoading] = useState(false);
     const [image, setImage] = useState(null);
 
     const handleFeatureImageChange = (e) => {
-        setLoading(true);
         const file = e.target.files[0];
-        const formData = new FormData();
-        formData.append("file", file);
+        useBase64(file).then(res => setImage(res)).catch(err => toast.error('somthing wentwrong' + err))
 
-        axios.post(`https://api.imgbb.com/1/upload/?key=${import.meta.env.VITE_IMAGE_KEY}`, formData)
-            .then(res => {
-                console.log(res);
-                setImage(res.data);
-                setLoading(false);
-            })
-            .catch(err => {
-                toast.error('Something went wrong' + err);
-                setLoading(false);
-            });
+
+
+
+
+        // const formData = new FormData();
+        // formData.append("file", file);
+
+        // axios.post(`https://api.imgbb.com/1/upload/?key=${import.meta.env.VITE_IMAGE_KEY}`, formData)
+        //     .then(res => {
+        //         console.log(res);
+        //         setImage(res.data);
+        //         setLoading(false);
+        //     })
+        //     .catch(err => {
+        //         toast.error('Something went wrong' + err);
+        //         setLoading(false);
+        //     });
 
     };
+    
     return (
         <div className='w-full'>
             <SimpleBoxContainer>
@@ -36,7 +43,7 @@ const FileUploadInput = () => {
                         <DeleteBtn className="absolute right-5 top-5" handleRemove={(e) => console.log(e)} />
 
                         {loading && <p>Loading..</p>}
-                        <img className='w-full object-cover center' src={image?.url} alt='image' />
+                        <img className='w-full object-cover center' src={image} alt='image' />
                     </div> : <div>
 
                         <label htmlFor="image" className="w-full cursor-pointer" >
