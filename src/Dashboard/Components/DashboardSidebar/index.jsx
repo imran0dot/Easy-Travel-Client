@@ -7,10 +7,13 @@ import { useContext } from "react";
 import DeleteBtn from "../../../components/base/DeleteBtn";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
+import { useLocation } from "react-router-dom";
 
 
 const DashboardSidebar = () => {
-    const { logOut } = useContext(Auth)
+    const { logOut } = useContext(Auth);
+    const { pathname } = useLocation();
+
 
     return (
         <div className="absolute top-0 w-full h-full pt-24 flex flex-col justify-between text-white font-bold text-2xl list-none " >
@@ -21,7 +24,7 @@ const DashboardSidebar = () => {
                         const { label, link, icon } = nav;
                         return (
                             <div key={index}>
-                                <ActiveRoute to={link}>
+                                <ActiveRoute to={link} exact={pathname}>
                                     {icon === "MdOutlineTour" && <MdOutlineTour />}
                                     {icon === "MdOutlineDownhillSkiing" && <MdOutlineDownhillSkiing />}
                                     {icon === "FaUserGraduate" && <FaUserGraduate />}
