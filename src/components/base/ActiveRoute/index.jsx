@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 
 const ActiveRoute = ({ children, to, exact }) => {
 
-    //TOD ACTIVE LINK SHOULD BE FIXED
     return (
         <div>
             <NavLink

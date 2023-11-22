@@ -5,9 +5,9 @@ import FuntionProvider from "./Provider/FunctionProvider";
 
 const DashboardLayout = () => {
     return (
-        <div>
+        <div className="bg-slate-200">
             <DashboardTopBar />
-            <div className="flex max-h-screen">
+            <div className="flex min-h-screen">
 
                 {/* SIDEBAR */}
                 <div className="w-2/12 bg-secondary sticky top-0 max-h-screen -mt-28">
@@ -15,7 +15,7 @@ const DashboardLayout = () => {
                 </div>
 
                 {/* BODY */}
-                <div className="p-5 w-10/12 bg-slate-200 min-h-screen">
+                <div className="p-5 w-10/12 h-full">
                     <FuntionProvider>
                         <Outlet />
                     </FuntionProvider>
