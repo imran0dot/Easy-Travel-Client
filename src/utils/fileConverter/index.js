@@ -1,4 +1,4 @@
-const useBase64 = (file) => {
+const fileConvert = (file) => {
 
     const fileReader = new FileReader();
     fileReader.readAsDataURL(file);
@@ -15,4 +15,4 @@ const useBase64 = (file) => {
     })
 }
 
-export default useBase64;
+export default fileConvert;

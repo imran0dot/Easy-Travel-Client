@@ -5,56 +5,49 @@ import DeleteBtn from '../DeleteBtn';
 import axios from 'axios';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import useBase64 from '../../../hooks/useData/useBase64';
+import fileConvert from '../../../utils/fileConverter';
+import LoadingSpinner from '../LoadingSpinner';
 
 const FileUploadInput = () => {
     const [loading, setLoading] = useState(false);
     const [image, setImage] = useState(null);
 
     const handleFeatureImageChange = (e) => {
+        setLoading(true);
         const file = e.target.files[0];
-        useBase64(file).then(res => setImage(res)).catch(err => toast.error('somthing wentwrong' + err))
-
-
-
-
-
-        // const formData = new FormData();
-        // formData.append("file", file);
-
-        // axios.post(`https://api.imgbb.com/1/upload/?key=${import.meta.env.VITE_IMAGE_KEY}`, formData)
-        //     .then(res => {
-        //         console.log(res);
-        //         setImage(res.data);
-        //         setLoading(false);
-        //     })
-        //     .catch(err => {
-        //         toast.error('Something went wrong' + err);
-        //         setLoading(false);
-        //     });
-
+        fileConvert(file).then(res => setImage(res)).catch(err => toast.error('somthing wentwrong' + err));
     };
-    
+
     return (
-        <div className='w-full'>
+        <div className='w-full relative'>
             <SimpleBoxContainer>
                 <SimpleHeading heading="Feature Image" />
-                {image ? <div className='relative'>
+
+                <div>
+                    {image ? <div className='relative'>
+                        {loading && <div className='flex flex-col justify-center items-center absolute top-0 bottom-0 left-0 right-0 bg-slate-200 text-secondary font-bold bg-opacity-40'>
+                            <LoadingSpinner />
+                            <p>Image Uploading on Cloudinary</p>
+                        </div>}
                         <DeleteBtn className="absolute right-5 top-5" handleRemove={(e) => console.log(e)} />
-
-                        {loading && <p>Loading..</p>}
                         <img className='w-full object-cover center' src={image} alt='image' />
-                    </div> : <div>
+                    </div>
 
-                        <label htmlFor="image" className="w-full cursor-pointer" >
-                            <div className="text-center text-4xl font-bold h-96 border flex flex-col justify-center items-center">
-                                <BsCloudUploadFill />
-                                Upload
-                            </div>
-                        </label>
-                        <input onChange={handleFeatureImageChange} className="hidden" type="file" id="image" accept="image/*" />
+                        :
 
-                    </div>}
+                        <div>
+
+                            <label htmlFor="image" className="w-full cursor-pointer" >
+                                <div className="text-center text-4xl font-bold h-96 border flex flex-col justify-center items-center">
+                                    <BsCloudUploadFill />
+                                    Upload
+                                </div>
+                            </label>
+                            <input onChange={handleFeatureImageChange} className="hidden" type="file" id="image" accept="image/*" />
+
+                        </div>}
+                </div>
+
             </SimpleBoxContainer>
         </div>
     );
