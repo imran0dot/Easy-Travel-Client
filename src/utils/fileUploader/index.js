@@ -1,14 +1,18 @@
-import axios from "axios"
+import axios from "axios";
 
-const fileUpload = async (image) => {
-    try {
-        const { data } = await axios.post(`${import.meta.env.VITE_CLOUDINERY}/upload/image`, image);
-        return data;
-    }
-    catch (err) {
-        return err;
-    }
-}
-
+const fileUpload = (image) => {
+  return new Promise((resolve, reject) => {
+    const imageWarpt = new FormData();
+    imageWarpt.append('image', image);
+    
+    axios.post('image-upload', imageWarpt)
+      .then(response => {
+        resolve(response);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+};
 
 export default fileUpload;

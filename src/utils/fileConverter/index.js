@@ -5,9 +5,7 @@ const fileConvert = (file) => {
 
     return new Promise((resolve, reject) => {
         try {
-            fileReader.onload = () => {
-                resolve(fileReader.result)
-            }
+            fileReader.onload = () =>  resolve(fileReader.result)
         }
         catch (err) {
             reject.throw(err);
