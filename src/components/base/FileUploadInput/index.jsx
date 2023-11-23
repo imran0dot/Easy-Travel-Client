@@ -2,31 +2,24 @@ import SimpleBoxContainer from '../SimpleBoxContainer';
 import SimpleHeading from '../SimpleHeading';
 import { BsCloudUploadFill } from 'react-icons/bs'
 import DeleteBtn from '../DeleteBtn';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import LoadingSpinner from '../LoadingSpinner';
-import fileUpload from '../../../utils/fileUploader';
+import { FromStates } from '../../../Dashboard/Layout/Provider/formStateHandler';
 
 const FileUploadInput = () => {
     const [loading, setLoading] = useState(false);
-    const [image, setImage] = useState(null);
-
-    const handleFeatureImageChange = (e) => {
-        setLoading(true);
-        const file = e.target.files[0];
-        fileUpload(file).then(res => {
-            setImage(res?.data?.url)
-            setLoading(false)
-        }).catch(() => setLoading(false))
-    };
+    const { handleFeatureImageChange, featureImage } = useContext(FromStates);
 
     return (
         <div className='w-full relative'>
             <SimpleBoxContainer>
                 <div className='h-96'>
                     <SimpleHeading heading="Feature Image" />
-                    {image ? <div className='relative'>
+                    {featureImage ? <div className='relative'>
+                        {/* TODO */}
                         <DeleteBtn className="absolute right-5 top-5" handleRemove={(e) => console.log(e)} />
-                        <img className='w-full object-cover center' src={image} alt='image' />
+
+                        <img className='w-full object-cover center' src={featureImage} alt='image' />
                     </div> : <div>
                         {loading ?
 
@@ -42,7 +35,7 @@ const FileUploadInput = () => {
                                         Upload
                                     </div>
                                 </label>
-                                <input onChange={handleFeatureImageChange} className="hidden" type="file" id="image" accept="image/*" />
+                                <input onChange={(e) => handleFeatureImageChange(e, setLoading)} className="hidden" type="file" id="image" accept="image/*" />
                             </div>}
                     </div>}
                 </div>

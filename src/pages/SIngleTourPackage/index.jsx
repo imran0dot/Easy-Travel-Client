@@ -13,8 +13,7 @@ const SingleTourPackage = () => {
 
     const { data } = useData(`${url[0]}/${url[1]}`);
     const { title, content, featureImage } = data ?? {};
-    console.log(data);
-    const bgStyle = bgStyled(featureImage?.display_url);
+    const bgStyle = bgStyled(featureImage);
 
     return (
         <div>

@@ -2,13 +2,14 @@ import axios from "axios";
 import { useState } from "react";
 import { createContext } from "react";
 import { toast } from "react-toastify";
+import fileUpload from "../../../../utils/fileUploader";
 
 export const FromStates = createContext(null);
 
 const FromStatesProvider = ({ children }) => {
     const [title, setTitle] = useState(localStorage.getItem("title") || "");
     const [content, setContent] = useState(localStorage.getItem("content") || "");
-    const [featureImage, setFeatureImage] = useState(JSON.parse(localStorage.getItem("img")) || {});
+    const [featureImage, setFeatureImage] = useState(JSON.parse(localStorage.getItem("image")) || null);
 
 
     const handleTitleChange = (index, event) => {
@@ -21,10 +22,19 @@ const FromStatesProvider = ({ children }) => {
         localStorage.setItem('content', newContent)
     }
 
+    const handleFeatureImageChange = (e, setLoading) => {
+        setLoading(true);
+        const file = e.target.files[0];
+        fileUpload(file).then(res => {
+            localStorage.setItem("image", JSON.stringify(res?.data?.url))
+            setFeatureImage(res?.data?.url)
+            setLoading(false)
+        }).catch(() => setLoading(false))
+    };
+
     const handleRemoveFeatureImage = () => {
-        axios.delete(featureImage.delete_url).then(res => console.log(res));
         localStorage.removeItem('img');
-        setFeatureImage("")
+        setFeatureImage(null)
     }
 
 // Form submit Function 
@@ -102,11 +112,15 @@ const FromStatesProvider = ({ children }) => {
 
     const funtions = {
         title,
-        content,
-        featureImage,
         handleTitleChange,
+
+        content,
         handleContentChange,
+
+        featureImage,
+        handleFeatureImageChange,
         handleRemoveFeatureImage,
+
         handleSubmit,
         handleDeleteSinglePost
     }

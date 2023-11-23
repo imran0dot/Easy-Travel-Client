@@ -25,7 +25,6 @@ const Login = () => {
         return <Navigate to={path} />
     }
 
-console.log(login);
     return (
         <div className=''>
             {userLoading ? <LoadingSpinner /> :
