@@ -5,7 +5,7 @@ const TopSection = ({bgImgStyle, title}) => {
 
         <div style={bgImgStyle} className="bg-secondary">
             <Container>
-                <div className="flex justify-center items-center min-h-[300px] md:min-h-[350px] lg:min-h-[450px] font-bold text-white">
+                <div className="flex justify-center items-center min-h-[300px] md:min-h-[350px] lg:min-h-96 font-bold text-white">
                     <h1 className="text-6xl bg-secondary p-10">{title}</h1>
                 </div>
             </Container>

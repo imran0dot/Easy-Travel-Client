@@ -15,7 +15,7 @@ const TouristVisa = () => {
             <Container>
                 {
                     data?.length !== 0 ?
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 my-10">
                             {data?.map((listData, index) => <ArchiveCard key={index} data={listData} />)}
                         </div> :
 
