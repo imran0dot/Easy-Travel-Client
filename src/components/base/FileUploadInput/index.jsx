@@ -3,8 +3,6 @@ import SimpleHeading from '../SimpleHeading';
 import { BsCloudUploadFill } from 'react-icons/bs'
 import DeleteBtn from '../DeleteBtn';
 import { useState } from 'react';
-import { toast } from 'react-toastify';
-import fileConvert from '../../../utils/fileConverter';
 import LoadingSpinner from '../LoadingSpinner';
 import fileUpload from '../../../utils/fileUploader';
 

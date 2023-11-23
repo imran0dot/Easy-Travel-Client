@@ -3,13 +3,13 @@ import LoadingSpinner from "@components/base/LoadingSpinner";
 import Table from "../../Components/Table";
 import useData from "../../../hooks/useData";
 import { useContext } from "react";
-import { Functions } from "../../Layout/Provider/FunctionProvider";
 import Button from "@components/base/Button";
+import { FromStates } from "../../Layout/Provider/formStateHandler";
 
 const TouristVisaList = () => {
     const { data, refetch, isPending, isLoading } = useData('tourist-visa');
 
-    const { handleDeleteSinglePost } = useContext(Functions)
+    const { handleDeleteSinglePost } = useContext(FromStates)
 
     const functions = {
         api: "tourist-visa",

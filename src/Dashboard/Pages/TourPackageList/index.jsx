@@ -3,14 +3,14 @@ import Table from "../../Components/Table";
 import LoadingSpinner from "../../../components/base/LoadingSpinner";
 import useData from "../../../hooks/useData";
 import { useContext } from "react";
-import { Functions } from "../../Layout/Provider/FunctionProvider";
 import Button from "@components/base/Button";
+import { FromStates } from "../../Layout/Provider/formStateHandler";
 
 
 
 const TourPackageList = () => {
     const { data, refetch, isPending, isLoading } = useData('tour-package');
-    const { handleDeleteSinglePost } = useContext(Functions)
+    const { handleDeleteSinglePost } = useContext(FromStates)
 
     const functions = {
         api: "tour-package",

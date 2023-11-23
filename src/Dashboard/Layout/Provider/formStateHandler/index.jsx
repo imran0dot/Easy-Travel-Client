@@ -1,18 +1,14 @@
 import axios from "axios";
-import { useRef } from "react";
 import { useState } from "react";
-import { createContext, useEffect } from "react";
+import { createContext } from "react";
 import { toast } from "react-toastify";
 
+export const FromStates = createContext(null);
 
-export const Functions = createContext(null);
-
-const FuntionProvider = ({ children }) => {
-    const storedCustomItems = localStorage.getItem("custom");
+const FromStatesProvider = ({ children }) => {
     const [title, setTitle] = useState(localStorage.getItem("title") || "");
     const [content, setContent] = useState(localStorage.getItem("content") || "");
     const [featureImage, setFeatureImage] = useState(JSON.parse(localStorage.getItem("img")) || {});
-    const [custom, setCustom] = useState([]);
 
 
     const handleTitleChange = (index, event) => {
@@ -25,54 +21,13 @@ const FuntionProvider = ({ children }) => {
         localStorage.setItem('content', newContent)
     }
 
-    const handleCustomInputChange = (index, event, blockIndex) => {
-        const values = [...custom];
-        values[blockIndex].data[index] = event.target.value;
-        localStorage.setItem("custom", JSON.stringify(values));
-        setCustom(values);
-    };
-
-
-
-    const handleAddCustomInput = (index) => {
-        const values = [...custom];
-        values[index].data.push("");
-        setCustom(values);
-    }
-
-
     const handleRemoveFeatureImage = () => {
         axios.delete(featureImage.delete_url).then(res => console.log(res));
         localStorage.removeItem('img');
         setFeatureImage("")
     }
- 
 
-    const handleRemoveCustomInput = (dataIndex, blockIndex) => {
-        const values = [...custom];
-        values[blockIndex].data.splice(dataIndex, 1);
-        localStorage.setItem("custom", JSON.stringify(values));
-        setCustom(values);
-    }
-
-    const handleRemoveCustom = (index) => {
-        const values = [...custom];
-        values.splice(index, 1);
-        localStorage.setItem("custom", JSON.stringify(values));
-        setCustom(values);
-    };
-
-
-    // custom file input chnage 
-    const customFildHeading = useRef(null);
-    const addCustomFiledHandle = () => {
-        const headText = customFildHeading.current.value;
-        setCustom((prev) => [...prev, { heading: headText, data: [""] }]);
-        customFildHeading.current.value = "";
-    }
-
-
-
+// Form submit Function 
     const handleSubmit = async (api) => {
         const {type, apiUrl} = api;
 
@@ -80,7 +35,6 @@ const FuntionProvider = ({ children }) => {
             title,
             content,
             featureImage,
-            custom,
         }
 
         if(type === "put"){
@@ -90,7 +44,6 @@ const FuntionProvider = ({ children }) => {
                     if (res.status === 200) {
                         setTitle("")
                         setContent("")
-                        setCustom([])
                         setFeatureImage("")
                         localStorage.removeItem("title")
                         localStorage.removeItem("content")
@@ -116,7 +69,6 @@ const FuntionProvider = ({ children }) => {
                     if (res.status === 200) {
                         setTitle("")
                         setContent("")
-                        setCustom([])
                         setFeatureImage("")
                         localStorage.removeItem("title")
                         localStorage.removeItem("content")
@@ -135,7 +87,7 @@ const FuntionProvider = ({ children }) => {
             }
         }
     }
-
+    // delete single item 
     const handleDeleteSinglePost = (id, api, refetch) => {
         axios.delete(`${api}/${id}`)
             .then(() => {
@@ -146,40 +98,24 @@ const FuntionProvider = ({ children }) => {
             })
     }
 
-    useEffect(() => {
-        localStorage.setItem("custom", JSON.stringify(custom));
-    }, [custom])
-
-
-    useEffect(() => {
-        storedCustomItems && setCustom(JSON.parse(storedCustomItems))
-    }, []);
 
 
     const funtions = {
         title,
         content,
         featureImage,
-        custom,
-        setCustom,
         handleTitleChange,
         handleContentChange,
-        handleCustomInputChange,
         handleRemoveFeatureImage,
-        handleAddCustomInput,
-        handleRemoveCustom,
-        handleRemoveCustomInput,
         handleSubmit,
-        customFildHeading,
-        addCustomFiledHandle,
         handleDeleteSinglePost
     }
 
     return (
-        <Functions.Provider value={funtions}>
+        <FromStates.Provider value={funtions}>
             {children}
-        </Functions.Provider>
+        </FromStates.Provider>
     );
 };
 
-export default FuntionProvider;
+export default FromStatesProvider;

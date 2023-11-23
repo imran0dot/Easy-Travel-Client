@@ -4,11 +4,11 @@ import LoadingSpinner from "@components/base/LoadingSpinner";
 import useData from "../../../hooks/useData";
 import Button from "@components/base/Button";
 import { useContext } from "react";
-import { Functions } from "../../Layout/Provider/FunctionProvider";
+import { FromStates } from "../../Layout/Provider/formStateHandler";
 
 const StudentVisaList = () => {
     const { data, refetch, isPending, isLoading } = useData('student-visa');
-    const { handleDeleteSinglePost } = useContext(Functions);
+    const { handleDeleteSinglePost } = useContext(FromStates);
 
     const functions = {
         api: "student-visa",

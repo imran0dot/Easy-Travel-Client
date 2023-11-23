@@ -2,7 +2,6 @@ import { bgStyled } from "@components/style";
 import Container from "@components/base/Container";
 import Sidebar from "@components/shared/Sidebar";
 import TopSection from "@components/base/TopSection";
-import PackageInfo from "@components/custom/SingleTourComponents/PackageInfo";
 import RelativePackages from "@components/custom/SingleTourComponents/RelativePackages";
 import { useLocation } from "react-router-dom";
 import useData from "../../hooks/useData";
@@ -14,7 +13,7 @@ const SingleTourPackage = () => {
 
     const { data } = useData(`${url[0]}/${url[1]}`);
     const { title, content, featureImage } = data ?? {};
-
+    console.log(data);
     const bgStyle = bgStyled(featureImage?.display_url);
 
     return (

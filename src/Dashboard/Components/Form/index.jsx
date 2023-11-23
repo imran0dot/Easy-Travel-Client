@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import { Functions } from "../../Layout/Provider/FunctionProvider";
-import CustomFiled from "../../Components/CustomFiled";
+import { FromStates } from "../../Layout/Provider/formStateHandler";
 import InputFiled from "../../../components/base/InputFiled";
 import SimpleHeading from "../../../components/base/SimpleHeading";
 import SimpleBoxContainer from "../../../components/base/SimpleBoxContainer";
@@ -15,7 +14,7 @@ const Form = ({ api, category, placeHolder }) => {
         featureImage,
         content,
         handleContentChange,
-        handleSubmit } = useContext(Functions);
+        handleSubmit } = useContext(FromStates);
 
     const submitForm = (e) => {
         e.preventDefault();
@@ -35,7 +34,6 @@ const Form = ({ api, category, placeHolder }) => {
                         <TextEditor
                             handleChange={handleContentChange} 
                             content={placeHolder ? placeHolder?.content : content} />
-                        <CustomFiled />
                     </div>
 
                     <div className="flex flex-col gap-10 w-4/12">
