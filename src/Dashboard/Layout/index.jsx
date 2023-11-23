@@ -2,10 +2,12 @@ import DashboardSidebar from "@dashboard/Components/DashboardSidebar";
 import DashboardTopBar from "@dashboard/Components/DashboardTopBar";
 import { Outlet } from "react-router-dom";
 import FromStatesProvider from "./Provider/formStateHandler";
+import ScrollToTop from "@components/shared/scrollToTop";
 
 const DashboardLayout = () => {
     return (
-        <div className="bg-slate-200">
+        <div className="bg-slate-200">      <ScrollToTop />
+
             <DashboardTopBar />
             <div className="flex min-h-screen">
 
