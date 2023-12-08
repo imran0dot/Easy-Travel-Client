@@ -41,7 +41,7 @@ const Sidebar = () => {
                             return (
                                 <Link to={link} key={index} className="flex flex-col lg:flex-row items-center gap-5 justify-start pb-3 w-full">
 
-                                    <div className="flex items-center text-4xl text-white bg-primary p-3 border rounded-lg">
+                                    <div className="flex items-center text-2xl text-white bg-primary p-3 border rounded-lg">
                                         {icon}
                                     </div>
 

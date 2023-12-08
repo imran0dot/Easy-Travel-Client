@@ -1,8 +1,7 @@
 import ReadMore from '../ReadMore';
 
 const PackageCard = ({item}) => {
-    const {featureImage, title} = item;
-    console.log(item)
+    const {featureImage, title, _id} = item;
     const styled = {
         'backgroundImage': `url(${featureImage})`,
         'backgroundPosition': 'center',
@@ -16,7 +15,7 @@ const PackageCard = ({item}) => {
                     <h4 className='text-3xl font-bold text-white bottom-10 left-10'>{title}</h4>
 
                     <div className='hidden group-hover:flex transition-all flex-col gap-3 items-start mt-5'>
-                        <ReadMore>Read More</ReadMore>
+                        <ReadMore href={`tourist-visa/${_id}`}>Read More</ReadMore>
                     </div>
 
                 </div>
