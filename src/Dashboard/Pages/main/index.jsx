@@ -1,23 +1,38 @@
+import { useEffect, useState } from "react";
 import SimpleBoxContainer from "../../../components/base/SimpleBoxContainer";
+import axios from "axios";
 
 // TODO 
 const DashboardMain = () => {
+    const [data, setData] = useState({});
+
+    const manageCount = (postLength) => {
+        if (postLength > 1) {
+            return `${postLength} posts`;
+        } else {
+            return `${postLength} post`;
+        }
+    }
+
+    useEffect(() => {
+        axios('data').then(res => setData(res.data));
+    }, [])
     return (
         <div className="flex flex-col gap-10">
             <div className="flex justify-between items-center gap-10">
                 <SimpleBoxContainer>
                     <h3 className="font-bold text-3xl uppercase">Tour Packages</h3>
-                    <p className="text-secondary uppercase font-bold text-lg">5 post</p>
+                    <p className="text-secondary uppercase font-bold text-lg">{manageCount(data?.tourPackageCount)}</p>
                 </SimpleBoxContainer>
 
                 <SimpleBoxContainer>
-                    <h3 className="font-bold text-3xl uppercase">Tour Packages</h3>
-                    <p className="text-secondary uppercase font-bold text-lg">5 post</p>
+                    <h3 className="font-bold text-3xl uppercase">Tourist Packages</h3>
+                    <p className="text-secondary uppercase font-bold text-lg">{manageCount(data?.touristPackageCount)}</p>
                 </SimpleBoxContainer>
 
                 <SimpleBoxContainer>
-                    <h3 className="font-bold text-3xl uppercase">Tour Packages</h3>
-                    <p className="text-secondary uppercase font-bold text-lg">5 post</p>
+                    <h3 className="font-bold text-3xl uppercase">Student Visa Packages</h3>
+                    <p className="text-secondary uppercase font-bold text-lg">{manageCount(data?.studentVisaCount)}</p>
                 </SimpleBoxContainer>
 
             </div>

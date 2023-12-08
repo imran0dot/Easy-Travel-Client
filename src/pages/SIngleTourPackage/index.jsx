@@ -12,8 +12,6 @@ const SingleTourPackage = () => {
 
     const { data } = useData(`${url[0]}/${url[1]}`);
     const { title, content, featureImage } = data ?? {};
-
-    console.log(data.length);
     return (
         <div>
             {/* top section  */}
