@@ -4,7 +4,7 @@ import PackageCard from "@components/base/PackageCard";
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-const PackageSlider = ({data}) => {
+const PackageSlider = ({ data }) => {
     const swiperBreakpoints = {
         640: {
             slidesPerView: 1.2,
@@ -34,7 +34,9 @@ const PackageSlider = ({data}) => {
             className="mySwiper custom-swiper"
         >
             {
-                data?.map((x, i) => <SwiperSlide key={i}><PackageCard /></SwiperSlide>)
+                data?.map((item, i) => <SwiperSlide key={i}>
+                    <PackageCard item={item} />
+                </SwiperSlide>)
             }
         </Swiper>
     );
