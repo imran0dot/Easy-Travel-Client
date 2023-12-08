@@ -22,7 +22,7 @@ const SingleTourPackage = () => {
             {/* body */}
             <Container>
                 <div className="flex flex-col lg:flex-row gap-10 my-10 overflow-hidden h-full">
-                    <div className="lg:w-8/12" dangerouslySetInnerHTML={{ __html: content }}></div>
+                    <div className="lg:w-8/12 text-lg" dangerouslySetInnerHTML={{ __html: content }}></div>
 
                     <div className="lg:w-4/12 relative flex flex-col gap-10">
                         <SimpleBoxContainer>

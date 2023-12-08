@@ -30,7 +30,7 @@ const Sidebar = () => {
         }
     ]
     return (
-            <div className="shadow-md rounded-lg p-10 sticky top-10">
+            <div className="shadow-lg border rounded-lg p-10 sticky top-10">
                 <h4 className="text-center font-bold text-4xl my-10">
                     Have any quation?
                 </h4>
@@ -39,13 +39,15 @@ const Sidebar = () => {
                         contactInfo?.map((info, index) => {
                             const { label, value, link, icon } = info;
                             return (
-                                <Link to={link} key={index} className="flex gap-5 justify-start pb-3 w-full">
-                                    <div className="flex items-center text-4xl text-secondary">
+                                <Link to={link} key={index} className="flex flex-col lg:flex-row items-center gap-5 justify-start pb-3 w-full">
+
+                                    <div className="flex items-center text-4xl text-white bg-primary p-3 border rounded-lg">
                                         {icon}
                                     </div>
+
                                     <div>
-                                        <h6 className="text-lg font-bold opacity-80">{label}</h6>
-                                        <h5 className="text-2xl font-bold">{value}</h5>
+                                        <h6 className="text-lg text-center lg:text-left font-bold opacity-80">{label}</h6>
+                                        <h5 className="text-xl text-center lg:text-left font-bold">{value}</h5>
                                     </div>
                                 </Link>
                             )
