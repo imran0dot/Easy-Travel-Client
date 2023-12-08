@@ -33,7 +33,7 @@ const FromStatesProvider = ({ children }) => {
     };
 
     const handleRemoveFeatureImage = () => {
-        localStorage.removeItem('img');
+        localStorage.removeItem('image');
         setFeatureImage(null)
     }
 

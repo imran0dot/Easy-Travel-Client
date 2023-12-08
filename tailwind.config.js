@@ -13,7 +13,8 @@ export default {
         quaternary: "#06a4e3b5"
       },
       fontFamily: {
-        newFont: ['Kaushan Script', 'cursive']
+        newFont: ['Kaushan Script', 'cursive'],
+        sans: ['Inter Tight', 'sans-serif'],
       }
     },
   },

@@ -10,8 +10,9 @@ const Form = ({ api, category, placeHolder }) => {
     const {
         title,
         handleTitleChange,
-        handleRemoveFeatureImage,
         featureImage,
+        handleFeatureImageChange,
+        handleRemoveFeatureImage,
         content,
         handleContentChange,
         handleSubmit } = useContext(FromStates);
@@ -28,11 +29,11 @@ const Form = ({ api, category, placeHolder }) => {
                     <div className="flex flex-col  gap-10 w-8/12">
                         <SimpleBoxContainer>
                             <SimpleHeading heading="Title" />
-                            <InputFiled input={placeHolder ? placeHolder?.title : title} onChange={handleTitleChange}  />
+                            <InputFiled input={placeHolder ? placeHolder?.title : title} onChange={handleTitleChange} />
                         </SimpleBoxContainer>
 
                         <TextEditor
-                            handleChange={handleContentChange} 
+                            handleChange={handleContentChange}
                             content={placeHolder ? placeHolder?.content : content} />
                     </div>
 
@@ -49,8 +50,9 @@ const Form = ({ api, category, placeHolder }) => {
                         }
 
                         <FileUploadInput
-                            handleRemove={handleRemoveFeatureImage}
                             imgSrc={featureImage}
+                            handleChange={handleFeatureImageChange}
+                            handleRemove={handleRemoveFeatureImage}
                         />
                     </div>
                 </div>
