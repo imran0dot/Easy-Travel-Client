@@ -38,14 +38,21 @@ const Header = () => {
                             </div>
                             <div>
 
-                                <ul className={`fixed top-0 bottom-0 z-10 w-full transition-all ${hamberger ? "left-0" : "-left-[100%]"}`}>
-                                    <div className="relative w-full min-h-full flex flex-col justify-center items-center gap-10 h-screen bg-white">
-                                        <div className="btn rounded-md absolute top-10 right-10 bg-primary p-3 text-white text-2xl z-20" onClick={() => setHamberger(false)}>
-                                            <AiOutlineClose />
+                                <ul className={`fixed top-0 bottom-0 z-10 w-full transition-all bg-white bg-opacity-75 ${hamberger ? "left-0" : "-left-[100%]"}`}>
+                                    <div className="bg-white w-8/12">
+
+                                        <div className="relative w-full min-h-full flex flex-col items-start gap-10 h-screen">
+
+                                            <div className="btn rounded-md absolute top-10 right-10 bg-primary p-3 text-white text-2xl z-20" onClick={() => setHamberger(false)}>
+                                                <AiOutlineClose />
+                                            </div>
+
+                                            <div className="flex flex-col gap-10 mt-24">
+                                                {
+                                                    navItems?.map((navMenu, index) => <NavMobile key={index} navMenu={navMenu} />)
+                                                }
+                                            </div>
                                         </div>
-                                        {
-                                            navItems?.map((navMenu, index) => <NavMobile key={index} navMenu={navMenu} />)
-                                        }
                                     </div>
                                 </ul>
                             </div>

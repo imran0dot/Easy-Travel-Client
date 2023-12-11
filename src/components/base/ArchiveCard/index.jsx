@@ -7,14 +7,16 @@ const ArchiveCard = ({ data }) => {
         <div className="shadow-lg rounded-lg group relative bg-[#E2E8F0]">
 
             <div className="overflow-hidden">
-                <img className="group-hover:scale-110 transition-all w-full object-cover" src={featureImage} alt="Image Loading Fail!" />
+                {featureImage && <img className="group-hover:scale-110 transition-all w-full object-cover" src={featureImage} alt="Easy Travel Image" />}
+
             </div>
 
-            <div className="h-28">
-                <p className="font-bold text-2xl p-4 border text-center">{title}</p>
+            <div className="h-36 font-bold text-xl p-4">
+                <p>{title}</p>
+                <p className="text-lg text-slate-700">Price 3500 ৳ (dummy)</p>
             </div>
 
-            <div className="flex justify-between w-full absolute bottom-0 left-0">
+            <div className="flex flex-col justify-between w-full absolute bottom-0 left-0">
                 <Button to={`${id}`}>READ MORE</Button>
             </div>
         </div>

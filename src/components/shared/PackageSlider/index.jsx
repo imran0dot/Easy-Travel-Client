@@ -15,11 +15,11 @@ const PackageSlider = ({ data }) => {
             spaceBetween: 20,
         },
         1024: {
-            slidesPerView: 3.3,
+            slidesPerView: 3.1,
             spaceBetween: 25,
         },
         1440: {
-            slidesPerView: 4.4,
+            slidesPerView: 3.4,
             spaceBetween: 30,
         },
     };

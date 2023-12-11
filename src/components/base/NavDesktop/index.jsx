@@ -5,7 +5,7 @@ const NavDektop = ({navMenu}) => {
     const {label, link} = navMenu;
     return (
         <li>
-            <Link to={link} className="font-bold uppercase text-slate-700 text-lg">{label}</Link>
+            <Link to={link} className="font-bold text-slate-700 text-lg">{label}</Link>
         </li>
     );
 };
