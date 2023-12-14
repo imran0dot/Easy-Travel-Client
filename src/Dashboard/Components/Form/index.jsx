@@ -6,7 +6,7 @@ import SimpleBoxContainer from "../../../components/base/SimpleBoxContainer";
 import FileUploadInput from "../../../components/base/FileUploadInput";
 import TextEditor from "../../../components/base/TextEditor";
 
-const Form = ({ api, category, placeHolder }) => {
+const Form = ({ api, categorys, placeHolder }) => {
     const {
         title,
         handleTitleChange,
@@ -19,7 +19,7 @@ const Form = ({ api, category, placeHolder }) => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        handleSubmit(api)
+        handleSubmit(api);
     }
 
     return (
@@ -34,17 +34,18 @@ const Form = ({ api, category, placeHolder }) => {
 
                         <TextEditor
                             handleChange={handleContentChange}
-                            content={placeHolder ? placeHolder?.content : content} />
+                            content={placeHolder ? placeHolder?.content : content}
+                        />
+
                     </div>
 
                     <div className="flex flex-col gap-10 w-4/12">
-                        {category &&
+                        {categorys &&
                             <SimpleBoxContainer>
-                                <p className="text-2xl font-bold mb-2">Category</p>
+                                <p className="text-2xl font-bold mb-2">Select {categorys?.name}</p>
                                 <select className="select select-bordered w-full rounded-none">
-                                    <option disabled selected>Who shot first?</option>
-                                    <option>Han Solo</option>
-                                    <option>Greedo</option>
+                                    <option disabled selected>Please Select A Option</option>
+                                    {categorys?.items.map((item, index) => <option key={index}>{item.name}</option>)}
                                 </select>
                             </SimpleBoxContainer>
                         }

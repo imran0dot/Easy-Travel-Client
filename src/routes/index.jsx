@@ -10,7 +10,7 @@ import HotelBooking from '../pages/HotelBooking';
 import AboutUs from '../pages/AboutUs';
 import SingleTourPackage from '../pages/SIngleTourPackage';
 import DashboardLayout from '../Dashboard/Layout';
-import TourPackageList from '../Dashboard/Pages/TourPackageList';
+import TourPackage from '../Dashboard/Pages/TourPackage';
 import PrivateRoute from '../Providers/PrivateRoute';
 import Login from '../pages/Login';
 import PrivacyPolicy from '../pages/PrivacyPolicy';
@@ -79,13 +79,15 @@ const router = createBrowserRouter([
                 <DashboardLayout />
             </PrivateRoute>,
         children: [
+            // Dashboar Routs  
             {
                 path: "/dashboard",
                 element: <DashboardMain />
             },
+            // Tour package routes 
             {
                 path: "/dashboard/tour-packages",
-                element: <TourPackageList />,
+                element: <TourPackage />,
             },
             {
                 path: "/dashboardtour-packages/add-new",
@@ -96,6 +98,7 @@ const router = createBrowserRouter([
                 element: <UpdatePost category={true} />
 
             },
+            // Tourist Visa routes 
             {
                 path: "/dashboard/tourist-visa",
                 element: <TouristVisaList />
@@ -108,6 +111,7 @@ const router = createBrowserRouter([
                 path: "/dashboard/tourist-visa/update/:id",
                 element: <UpdatePost />
             },
+            // Student Visa routes 
             {
                 path: "/dashboard/student-visa",
                 element: <StudentVisaList />,
