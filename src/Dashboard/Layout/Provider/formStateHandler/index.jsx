@@ -37,9 +37,9 @@ const FromStatesProvider = ({ children }) => {
         setFeatureImage(null)
     }
 
-// Form submit Function 
+    // Form submit Function 
     const handleSubmit = async (api) => {
-        const {type, apiUrl} = api;
+        const { type, apiUrl } = api;
 
         const data = {
             title,
@@ -47,51 +47,55 @@ const FromStatesProvider = ({ children }) => {
             featureImage,
         }
 
-        if(type === "put"){
+        if (type === "put") {
             try {
                 axios.put(apiUrl, data)
-                .then(res => {
-                    if (res.status === 200) {
-                        setTitle("")
-                        setContent("")
-                        setFeatureImage("")
-                        localStorage.removeItem("title")
-                        localStorage.removeItem("content")
-                        localStorage.removeItem("custom")
-                        localStorage.removeItem("img");
-                        toast.success("post has been updated!")
-                    }else{
-                        toast.error("Something went Wrong! Please Full Fill All Require Items")
-                    }
-                })
-                .catch ((err) => {
-                    toast.error("Something went Wrong!" + err)
-                })
+                    .then(res => {
+                        if (res.status === 200) {
+                            setTitle("")
+                            setContent("")
+                            setFeatureImage("")
+                            localStorage.removeItem("title")
+                            localStorage.removeItem("content")
+                            localStorage.removeItem("custom")
+                            localStorage.removeItem("img");
+                            toast.success("post has been updated!")
+                        } else {
+                            toast.error("Something went Wrong! Please Full Fill All Require Items")
+                        }
+                    })
+                    .catch((err) => {
+                        toast.error("Something went Wrong!" + err)
+                    })
             } catch (error) {
                 toast.error("Something went Wrong! Please Full Fill All Require Items")
             }
         }
 
-        else{
+        else {
             try {
+                console.log(apiUrl)
                 axios.post(apiUrl, data)
-                .then(res => {
-                    if (res.status === 200) {
-                        setTitle("")
-                        setContent("")
-                        setFeatureImage("")
-                        localStorage.removeItem("title")
-                        localStorage.removeItem("content")
-                        localStorage.removeItem("custom")
-                        localStorage.removeItem("img");
-                        toast.success("post has been updated!")
-                    }else{
+                    .then(res => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            setTitle("")
+                            setContent("")
+                            setFeatureImage("")
+                            localStorage.removeItem("title")
+                            localStorage.removeItem("content")
+                            localStorage.removeItem("custom")
+                            localStorage.removeItem("img");
+                            toast.success("post has been updated!")
+                        } else {
+                            toast.error("Something went Wrong! Please Full Fill All Require Items")
+                        }
+                    })
+
+                    
+                    .catch(() => {
                         toast.error("Something went Wrong! Please Full Fill All Require Items")
-                    }
-                })
-                .catch (() => {
-                    toast.error("Something went Wrong! Please Full Fill All Require Items")
-                })
+                    })
             } catch (error) {
                 toast.error("Something went Wrong! Please Full Fill All Require Items")
             }

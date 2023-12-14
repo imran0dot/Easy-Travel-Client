@@ -32,13 +32,11 @@ const Form = ({ api, categorys, placeHolder }) => {
                             <InputFiled input={placeHolder ? placeHolder?.title : title} onChange={handleTitleChange} />
                         </SimpleBoxContainer>
 
-                        <TextEditor
-                            handleChange={handleContentChange}
-                            content={placeHolder ? placeHolder?.content : content}
-                        />
-
+                        {/* TEST EDITOR  */}
+                        <TextEditor handleChange={handleContentChange} content={placeHolder ? placeHolder?.content : content} />
                     </div>
 
+                    {/* Category Select Options  */}
                     <div className="flex flex-col gap-10 w-4/12">
                         {categorys &&
                             <SimpleBoxContainer>
@@ -56,6 +54,7 @@ const Form = ({ api, categorys, placeHolder }) => {
                             handleRemove={handleRemoveFeatureImage}
                         />
                     </div>
+
                 </div>
 
                 <div className="w-full flex flex-col justify-center items-center mx-auto mt-10">

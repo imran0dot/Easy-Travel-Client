@@ -91,10 +91,6 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboardtour-packages/add-new",
-                element: <AddPost category={true} />
-            },
-            {
-                path: "/dashboardtour-packages/add-new",
                 element: <UpdatePost category={true} />
 
             },

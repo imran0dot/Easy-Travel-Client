@@ -73,7 +73,7 @@ const TourPackage = () => {
 
     return (
         addForm ?
-            <Form categorys={country} />
+            <Form api={{ type: "post", apiUrl: 'tour-package' }} categorys={country} />
 
             :
 
