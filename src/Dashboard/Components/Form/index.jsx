@@ -15,7 +15,6 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
         content,
         price,
         handlePriceChange,
-        setSelectItem,
         handleSelectItemChange,
         handleContentChange,
     } = useContext(FromStates);
