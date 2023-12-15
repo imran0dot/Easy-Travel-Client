@@ -48,7 +48,12 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
                                 <p className="text-2xl font-bold mb-2">Select {categorys?.name}</p>
                                 <select onChange={(e) => handleSelectItemChange(e.target.value)} className="select select-bordered w-full rounded-none">
                                     <option disabled selected value={null}>Please Select A Option</option>
-                                    {categorys?.items.map((item, index) => <option key={index}>{item.name}</option>)}
+                                    {categorys?.items.map((item, index) => {
+                                        if(placeHolder?.categoryItem === item.name){
+                                            return <option selected key={index}>{item.name}</option>
+                                        }
+                                        return <option key={index}>{item.name}</option>
+                                    })}
                                 </select>
                             </SimpleBoxContainer>
                         }
