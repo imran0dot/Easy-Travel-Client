@@ -36,11 +36,12 @@ const FromStatesProvider = ({ children }) => {
     // IMAGE 
     const handleFeatureImageChange = (e, setLoading) => {
         const file = e.target.files[0];
+        setLoading(true)
         fileUpload(file).then(res => {
             localStorage.setItem("image", JSON.stringify(res?.data?.url))
             setFeatureImage(res?.data?.url)
             setLoading(false)
-        }).catch((err) => console.error(err))
+        }).catch(() => setLoading(true))
     };
 
     // SELECT ITEM 
@@ -75,18 +76,18 @@ const FromStatesProvider = ({ children }) => {
         if (type === "patch") {
             try {
                 console.log(data);
-                // axios.patch(apiUrl, data)
-                //     .then(res => {
-                //         if (res.status === 200) {
-                //             clearStoreage();
-                //             toast.success("post has been updated!")
-                //         } else {
-                //             toast.error("Something went Wrong! Please Full Fill All Require Items")
-                //         }
-                //     })
-                //     .catch((err) => {
-                //         toast.error("Something went Wrong!" + err)
-                //     })
+                axios.patch(apiUrl, data)
+                    .then(res => {
+                        if (res.status === 200) {
+                            clearStoreage();
+                            toast.success("post has been updated!")
+                        } else {
+                            toast.error("Something went Wrong! Please Full Fill All Require Items")
+                        }
+                    })
+                    .catch((err) => {
+                        toast.error("Something went Wrong!" + err)
+                    })
             } catch (error) {
                 toast.error("Something went Wrong! Please Full Fill All Require Items")
             }

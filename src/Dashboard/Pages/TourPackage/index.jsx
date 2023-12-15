@@ -96,7 +96,10 @@ const TourPackage = () => {
 
     if (singleItemId) {
         return <UpdatePost
-            handleUpdate={() => handleSubmit(urlCreate('patch', `tour-package/${singleItemId}`), itemData)}
+            handleUpdate={() => {
+                handleSubmit(urlCreate('patch', `tour-package/${singleItemId}`), itemData),
+                    refetch();
+            }}
             api={`tour-package/${singleItemId}`}
             categorys={country} />
     }
