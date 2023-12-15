@@ -10,7 +10,7 @@ const FromStatesProvider = ({ children }) => {
     const [title, setTitle] = useState(JSON.parse(localStorage.getItem("title")) || "");
     const [content, setContent] = useState("");
     const [featureImage, setFeatureImage] = useState(JSON.parse(localStorage.getItem("image")) || null);
-    const [price, setPrice] = useState(JSON.parse(localStorage.getItem("price")) || "");
+    const [price, setPrice] = useState(localStorage.getItem("price") || "");
 
 
     // TITLE
@@ -50,29 +50,28 @@ const FromStatesProvider = ({ children }) => {
         setFeatureImage(null)
     }
 
+    const clearLocalStoreage = () => {
+        setTitle("")
+        setContent("")
+        setPrice("")
+        setFeatureImage("")
+        localStorage.removeItem("title")
+        localStorage.removeItem("content")
+        localStorage.removeItem("price")
+        localStorage.removeItem("image");
+    }
     // FORM SUBMIT 
-    const handleSubmit = async (api) => {
+    const handleSubmit = async (api, data) => {
         const { type, apiUrl } = api;
 
-        const data = {
-            title,
-            content,
-            price,
-            featureImage,
-        }
+        console.log(data);
 
         if (type === "put") {
             try {
                 axios.put(apiUrl, data)
                     .then(res => {
                         if (res.status === 200) {
-                            setTitle("")
-                            setContent("")
-                            setFeatureImage("")
-                            localStorage.removeItem("title")
-                            localStorage.removeItem("content")
-                            localStorage.removeItem("custom")
-                            localStorage.removeItem("img");
+                            clearLocalStoreage();
                             toast.success("post has been updated!")
                         } else {
                             toast.error("Something went Wrong! Please Full Fill All Require Items")

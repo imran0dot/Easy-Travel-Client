@@ -5,7 +5,7 @@ import SimpleBoxContainer from "../../../components/base/SimpleBoxContainer";
 import FileUploadInput from "../../../components/base/FileUploadInput";
 import TextEditor from "../../../components/base/TextEditor";
 
-const Form = ({ api, categorys, placeHolder }) => {
+const Form = ({ handleSubmit, categorys, placeHolder }) => {
     const {
         title,
         handleTitleChange,
@@ -16,11 +16,11 @@ const Form = ({ api, categorys, placeHolder }) => {
         price,
         handlePriceChange,
         handleContentChange,
-        handleSubmit } = useContext(FromStates);
+    } = useContext(FromStates);
 
     const submitForm = (e) => {
         e.preventDefault();
-        handleSubmit(api);
+        handleSubmit()
     }
 
     return (
@@ -56,7 +56,7 @@ const Form = ({ api, categorys, placeHolder }) => {
 
                         {/* PRICE INPUT  */}
                         <SimpleBoxContainer>
-                            <InputFiled input={placeHolder ? placeHolder?.price : price} onChange={handlePriceChange} label="Price" />
+                            <InputFiled type="number" input={placeHolder ? placeHolder?.price : price} onChange={handlePriceChange} label="Price" />
                         </SimpleBoxContainer>
 
 
