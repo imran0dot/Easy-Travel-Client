@@ -5,9 +5,11 @@ import DeleteBtn from '../DeleteBtn';
 import { useState } from 'react';
 import LoadingSpinner from '../LoadingSpinner';
 
-const FileUploadInput = ({ imgSrc, handleChange, handleRemove }) => {
+const FileUploadInput = ({ imgSrc, setFeatureImage, handleChange, handleRemove }) => {
     const [loading, setLoading] = useState(false);
-
+    if(imgSrc){
+        setFeatureImage(imgSrc)
+    }
     return (
         <div className='w-full relative'>
             <SimpleBoxContainer>
@@ -21,7 +23,7 @@ const FileUploadInput = ({ imgSrc, handleChange, handleRemove }) => {
                     </div> : <div>
                         {loading ?
 
-                            <div className='flex flex-col justify-center items-center absolute top-0 bottom-0 left-0 right-0 bg-slate-200 text-secondary font-bold bg-opacity-40 min-h-96'>
+                            <div className='flex flex-col justify-center items-center absolute top-0 bottom-0 left-0 right-0 bg-slate-200 text-secondary font-bold bg-opacity-40 min-h-[200px]'>
                                 <LoadingSpinner />
                                 <p>Image Uploading on Cloudinary</p>
                             </div> :

@@ -10,6 +10,7 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
         title,
         handleTitleChange,
         featureImage,
+        setFeatureImage,
         handleFeatureImageChange,
         handleRemoveFeatureImage,
         content,
@@ -24,7 +25,7 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
         handleSubmit()
     };
 
-    console.log(placeHolder)
+
 
 
     return (
@@ -46,12 +47,13 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
                         {categorys &&
                             <SimpleBoxContainer>
                                 <p className="text-2xl font-bold mb-2">Select {categorys?.name}</p>
-                                <select onChange={(e) => handleSelectItemChange(e.target.value)} className="select select-bordered w-full rounded-none">
+                                <select onClick={(e) => handleSelectItemChange(e.target.value)} className="select select-bordered w-full rounded-none">
                                     <option disabled selected value={null}>Please Select A Option</option>
                                     {categorys?.items.map((item, index) => {
-                                        if(placeHolder?.categoryItem === item.name){
-                                            return <option selected key={index}>{item.name}</option>
-                                        }
+                                        // TODO 
+                                        // if (placeHolder?.categoryItem === item.name) {
+                                        //     return <option selected key={index}>{item.name}</option>
+                                        // }
                                         return <option key={index}>{item.name}</option>
                                     })}
                                 </select>
@@ -71,7 +73,8 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
 
                         {/* IMAGE INPUT  */}
                         <FileUploadInput
-                            imgSrc={featureImage}
+                            imgSrc={placeHolder ? placeHolder.featureImage : featureImage}
+                            setFeatureImage={setFeatureImage}
                             handleChange={handleFeatureImageChange}
                             handleRemove={handleRemoveFeatureImage}
                         />

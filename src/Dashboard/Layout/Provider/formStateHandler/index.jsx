@@ -29,25 +29,24 @@ const FromStatesProvider = ({ children }) => {
 
     // PRICE 
     const handlePriceChange = (inputPrice) => {
-        console.log(inputPrice)
         setPrice(inputPrice);
         localStorage.setItem('price', inputPrice)
     }
 
     // IMAGE 
     const handleFeatureImageChange = (e, setLoading) => {
-        setLoading(true);
         const file = e.target.files[0];
         fileUpload(file).then(res => {
             localStorage.setItem("image", JSON.stringify(res?.data?.url))
             setFeatureImage(res?.data?.url)
             setLoading(false)
-        }).catch(() => setLoading(false))
+        }).catch((err) => console.error(err))
     };
 
     // SELECT ITEM 
     const handleSelectItemChange = (value) => {
         setCategoryItem(value);
+        localStorage.setItem("category", JSON.stringify(value));
     }
 
 
@@ -56,37 +55,38 @@ const FromStatesProvider = ({ children }) => {
         setFeatureImage(null)
     }
 
-    const clearLocalStoreage = () => {
+    const clearStoreage = () => {
         setTitle("")
         setContent("")
         setPrice("")
         setFeatureImage("")
+        setCategoryItem("")
         localStorage.removeItem("title")
         localStorage.removeItem("content")
         localStorage.removeItem("price")
         localStorage.removeItem("image");
+        localStorage.removeItem("category")
     }
 
     // FORM SUBMIT 
     const handleSubmit = async (api, data) => {
         const { type, apiUrl } = api;
 
-        console.log(data);
-
-        if (type === "put") {
+        if (type === "patch") {
             try {
-                axios.put(apiUrl, data)
-                    .then(res => {
-                        if (res.status === 200) {
-                            clearLocalStoreage();
-                            toast.success("post has been updated!")
-                        } else {
-                            toast.error("Something went Wrong! Please Full Fill All Require Items")
-                        }
-                    })
-                    .catch((err) => {
-                        toast.error("Something went Wrong!" + err)
-                    })
+                console.log(data);
+                // axios.patch(apiUrl, data)
+                //     .then(res => {
+                //         if (res.status === 200) {
+                //             clearStoreage();
+                //             toast.success("post has been updated!")
+                //         } else {
+                //             toast.error("Something went Wrong! Please Full Fill All Require Items")
+                //         }
+                //     })
+                //     .catch((err) => {
+                //         toast.error("Something went Wrong!" + err)
+                //     })
             } catch (error) {
                 toast.error("Something went Wrong! Please Full Fill All Require Items")
             }
@@ -96,16 +96,9 @@ const FromStatesProvider = ({ children }) => {
             try {
                 axios.post(apiUrl, data)
                     .then(res => {
-                        console.log(res);
                         if (res.status === 200) {
-                            setTitle("")
-                            setContent("")
-                            setFeatureImage("")
-                            localStorage.removeItem("title")
-                            localStorage.removeItem("content")
-                            localStorage.removeItem("custom")
-                            localStorage.removeItem("img");
-                            toast.success("post has been updated!")
+                            clearStoreage();
+                            toast.success("Post has been updated")
                         } else {
                             toast.error("Something went Wrong! Please Full Fill All Require Items")
                         }
@@ -141,6 +134,7 @@ const FromStatesProvider = ({ children }) => {
         handleContentChange,
 
         featureImage,
+        setFeatureImage,
         handleFeatureImageChange,
         handleRemoveFeatureImage,
 

@@ -17,7 +17,6 @@ import PrivacyPolicy from '../pages/PrivacyPolicy';
 import TermsAndCondition from '../pages/TermsAndCondition';
 import StudentVisaList from '../Dashboard/Pages/StudentVisa';
 import TouristVisaList from '../Dashboard/Pages/TouristVisa';
-import UpdatePost from '../Dashboard/Pages/updatePost';
 import DashboardMain from '../Dashboard/Pages/main';
 
 const router = createBrowserRouter([
@@ -93,18 +92,10 @@ const router = createBrowserRouter([
                 path: "/dashboard/tourist-visa",
                 element: <TouristVisaList />
             },
-            {
-                path: "/dashboard/tourist-visa/update/:id",
-                element: <UpdatePost />
-            },
             // Student Visa routes 
             {
                 path: "/dashboard/student-visa",
                 element: <StudentVisaList />,
-            },
-            {
-                path: "/dashboard/student-visa/update/:id",
-                element: <UpdatePost />,
             }
         ]
     },
