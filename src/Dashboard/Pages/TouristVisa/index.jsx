@@ -12,7 +12,7 @@ const TouristVisaList = () => {
     const { data, refetch, isPending, isLoading } = useData('tourist-visa');
     const [addForm, setAddForm] = useState(false)
 
-    const { handleDeleteSinglePost } = useContext(FromStates)
+    const { handleDeleteSinglePost, handleSubmit, title, featureImage, price, content } = useContext(FromStates)
 
     const functions = {
         api: "tourist-visa",
@@ -20,12 +20,24 @@ const TouristVisaList = () => {
         refetch,
     }
 
+
+    // FOR SUMBIT POST 
+    const api = { type: "post", apiUrl: 'tourist-visa' };
+    const postData = {
+        title,
+        featureImage,
+        price,
+        content
+    }
+
     return (
         addForm ?
 
             <div className="flex flex-col gap-10">
                 <Button onClick={() => { setAddForm(false); refetch() }}>Back</Button>
-                <Form api={{ type: "post", apiUrl: 'tourist-visa' }} />
+                <Form
+                    handleSubmit={() => handleSubmit(api, postData)}
+                />
             </div>
 
             :

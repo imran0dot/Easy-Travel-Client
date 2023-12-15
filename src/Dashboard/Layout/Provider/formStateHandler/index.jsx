@@ -11,6 +11,7 @@ const FromStatesProvider = ({ children }) => {
     const [content, setContent] = useState("");
     const [featureImage, setFeatureImage] = useState(JSON.parse(localStorage.getItem("image")) || null);
     const [price, setPrice] = useState(localStorage.getItem("price") || "");
+    const [categoryItem, setCategoryItem] = useState("");
 
 
     // TITLE
@@ -44,6 +45,11 @@ const FromStatesProvider = ({ children }) => {
         }).catch(() => setLoading(false))
     };
 
+    // SELECT ITEM 
+    const handleSelectItemChange = (value) => {
+        setCategoryItem(value);
+    }
+
 
     const handleRemoveFeatureImage = () => {
         localStorage.removeItem('image');
@@ -60,6 +66,7 @@ const FromStatesProvider = ({ children }) => {
         localStorage.removeItem("price")
         localStorage.removeItem("image");
     }
+
     // FORM SUBMIT 
     const handleSubmit = async (api, data) => {
         const { type, apiUrl } = api;
@@ -140,6 +147,10 @@ const FromStatesProvider = ({ children }) => {
         price,
         setPrice,
         handlePriceChange,
+
+        categoryItem,
+        setCategoryItem,
+        handleSelectItemChange,
 
         handleSubmit,
         handleDeleteSinglePost

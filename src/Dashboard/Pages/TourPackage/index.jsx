@@ -61,8 +61,8 @@ export const country = {
 
 const TourPackage = () => {
     const { data, refetch, isPending, isLoading } = useData('tour-package');
-    const { handleDeleteSinglePost } = useContext(FromStates);
     const [addForm, setAddForm] = useState(false)
+    const { handleDeleteSinglePost, handleSubmit, title, featureImage, price, content, categoryItem } = useContext(FromStates);
 
     const functions = {
         api: "tour-package",
@@ -70,10 +70,26 @@ const TourPackage = () => {
         refetch,
     }
 
+    const api = { type: "post", apiUrl: 'tour-package' };
+    const postData = {
+        title,
+        featureImage,
+        price,
+        content,
+        categoryItem
+    }
+
+
 
     return (
         addForm ?
-            <Form api={{ type: "post", apiUrl: 'tour-package' }} categorys={country} />
+            <div className="flex flex-col gap-10">
+                <Button onClick={() => { setAddForm(false); refetch() }}>Back</Button>
+                <Form
+                    categorys={country}
+                    handleSubmit={() => handleSubmit(api, postData)}
+                />
+            </div>
 
             :
 

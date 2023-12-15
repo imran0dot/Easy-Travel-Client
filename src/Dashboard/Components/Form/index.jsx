@@ -15,6 +15,8 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
         content,
         price,
         handlePriceChange,
+        setSelectItem,
+        handleSelectItemChange,
         handleContentChange,
     } = useContext(FromStates);
 
@@ -42,8 +44,8 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
                         {categorys &&
                             <SimpleBoxContainer>
                                 <p className="text-2xl font-bold mb-2">Select {categorys?.name}</p>
-                                <select className="select select-bordered w-full rounded-none">
-                                    <option disabled selected>Please Select A Option</option>
+                                <select onChange={(e) => handleSelectItemChange(e.target.value)} className="select select-bordered w-full rounded-none">
+                                    <option disabled selected value={null}>Please Select A Option</option>
                                     {categorys?.items.map((item, index) => <option key={index}>{item.name}</option>)}
                                 </select>
                             </SimpleBoxContainer>
