@@ -100,10 +100,6 @@ const router = createBrowserRouter([
                 element: <TouristVisaList />
             },
             {
-                path: "/dashboard/tourist-visa/add-new",
-                element: <AddPost />
-            },
-            {
                 path: "/dashboard/tourist-visa/update/:id",
                 element: <UpdatePost />
             },

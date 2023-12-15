@@ -7,21 +7,33 @@ import fileUpload from "../../../../utils/fileUploader";
 export const FromStates = createContext(null);
 
 const FromStatesProvider = ({ children }) => {
-    const [title, setTitle] = useState(localStorage.getItem("title") || "");
-    const [content, setContent] = useState(localStorage.getItem("content") || "");
+    const [title, setTitle] = useState(JSON.parse(localStorage.getItem("title")) || "");
+    const [content, setContent] = useState("");
     const [featureImage, setFeatureImage] = useState(JSON.parse(localStorage.getItem("image")) || null);
+    const [price, setPrice] = useState(JSON.parse(localStorage.getItem("price")) || "");
 
 
-    const handleTitleChange = (index, event) => {
-        setTitle(event.target.value);
-        localStorage.setItem("title", event.target.value);
+    // TITLE
+
+    const handleTitleChange = (inputTitel) => {
+        setTitle(inputTitel);
+        localStorage.setItem("title", JSON.stringify(inputTitel));
     }
 
+    // CONTENT 
     const handleContentChange = (newContent) => {
         setContent(newContent);
         localStorage.setItem('content', newContent)
     }
 
+    // PRICE 
+    const handlePriceChange = (inputPrice) => {
+        console.log(inputPrice)
+        setPrice(inputPrice);
+        localStorage.setItem('price', inputPrice)
+    }
+
+    // IMAGE 
     const handleFeatureImageChange = (e, setLoading) => {
         setLoading(true);
         const file = e.target.files[0];
@@ -32,18 +44,20 @@ const FromStatesProvider = ({ children }) => {
         }).catch(() => setLoading(false))
     };
 
+
     const handleRemoveFeatureImage = () => {
         localStorage.removeItem('image');
         setFeatureImage(null)
     }
 
-    // Form submit Function 
+    // FORM SUBMIT 
     const handleSubmit = async (api) => {
         const { type, apiUrl } = api;
 
         const data = {
             title,
             content,
+            price,
             featureImage,
         }
 
@@ -74,7 +88,6 @@ const FromStatesProvider = ({ children }) => {
 
         else {
             try {
-                console.log(apiUrl)
                 axios.post(apiUrl, data)
                     .then(res => {
                         console.log(res);
@@ -92,7 +105,7 @@ const FromStatesProvider = ({ children }) => {
                         }
                     })
 
-                    
+
                     .catch(() => {
                         toast.error("Something went Wrong! Please Full Fill All Require Items")
                     })
@@ -124,6 +137,10 @@ const FromStatesProvider = ({ children }) => {
         featureImage,
         handleFeatureImageChange,
         handleRemoveFeatureImage,
+
+        price,
+        setPrice,
+        handlePriceChange,
 
         handleSubmit,
         handleDeleteSinglePost
