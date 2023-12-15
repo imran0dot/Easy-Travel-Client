@@ -22,7 +22,10 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
     const submitForm = (e) => {
         e.preventDefault();
         handleSubmit()
-    }
+    };
+
+    console.log(placeHolder)
+
 
     return (
         <div>

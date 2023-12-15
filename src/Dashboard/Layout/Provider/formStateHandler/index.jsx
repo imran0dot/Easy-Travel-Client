@@ -7,7 +7,7 @@ import fileUpload from "../../../../utils/fileUploader";
 export const FromStates = createContext(null);
 
 const FromStatesProvider = ({ children }) => {
-    const [title, setTitle] = useState(JSON.parse(localStorage.getItem("title")) || "");
+    const [title, setTitle] = useState(localStorage.getItem("title") || "");
     const [content, setContent] = useState("");
     const [featureImage, setFeatureImage] = useState(JSON.parse(localStorage.getItem("image")) || null);
     const [price, setPrice] = useState(localStorage.getItem("price") || "");

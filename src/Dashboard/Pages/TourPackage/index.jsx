@@ -6,7 +6,8 @@ import { useContext, useState } from "react";
 import Button from "@components/base/Button";
 import { FromStates } from "../../Layout/Provider/formStateHandler";
 import Form from "../../Components/Form";
-
+import { useLocation } from "react-router-dom";
+import UpdatePost from "../updatePost";
 
 
 export const country = {
@@ -59,6 +60,8 @@ export const country = {
     ]
 }
 
+
+
 const TourPackage = () => {
     const { data, refetch, isPending, isLoading } = useData('tour-package');
     const [addForm, setAddForm] = useState(false)
@@ -70,14 +73,34 @@ const TourPackage = () => {
         refetch,
     }
 
-    const api = { type: "post", apiUrl: 'tour-package' };
-    const postData = {
+    const urlCreate = (type, url) => {
+        return {
+            type: type,
+            apiUrl: url
+        }
+    }
+    const itemData = {
         title,
         featureImage,
         price,
         content,
         categoryItem
     }
+
+
+    // UPDATE POST 
+    const search = useLocation().search
+    const searchParams = new URLSearchParams(search);
+    const singleItemId = searchParams.get('update-id');
+
+
+    if (singleItemId) {
+        return <UpdatePost
+            handleUpdate={() => handleSubmit(urlCreate('patch', 'tour-package'), itemData)}
+            api={`tour-package/${singleItemId}`}
+            categorys={country} />
+    }
+
 
 
 
@@ -87,7 +110,7 @@ const TourPackage = () => {
                 <Button onClick={() => { setAddForm(false); refetch() }}>Back</Button>
                 <Form
                     categorys={country}
-                    handleSubmit={() => handleSubmit(api, postData)}
+                    handleSubmit={() => handleSubmit(urlCreate('post', 'tour-package'), itemData)}
                 />
             </div>
 

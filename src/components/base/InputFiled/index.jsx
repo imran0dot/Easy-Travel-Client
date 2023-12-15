@@ -6,12 +6,11 @@ const InputFiled = ({ index, input, onChange, label, placeholder, type, name }) 
 
     useEffect(() => {
         setHandleInput(input)
+        onChange(input);
     }, [input])
 
     const handleChange = (e) => {
-        if (onChange) {
-            onChange(e.target.value);
-        }
+        onChange(e.target.value);
         setHandleInput(e.target.value)
     }
 

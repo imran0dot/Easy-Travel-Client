@@ -88,11 +88,6 @@ const router = createBrowserRouter([
                 path: "/dashboard/tour-packages",
                 element: <TourPackage />,
             },
-            {
-                path: "/dashboardtour-packages/add-new",
-                element: <UpdatePost category={true} />
-
-            },
             // Tourist Visa routes 
             {
                 path: "/dashboard/tourist-visa",
