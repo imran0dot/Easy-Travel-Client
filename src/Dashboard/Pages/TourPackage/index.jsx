@@ -12,7 +12,7 @@ import getParams from "../../../utils/getParams";
 import urlCreate from "../../../utils/getUrlForSubmit";
 
 
-export const country = {
+export const countrys = {
     name: 'Country Name',
     items: [
         {
@@ -93,7 +93,7 @@ const TourPackage = () => {
                     refetch();
             }}
             api={`tour-package/${getIdFromParams}`}
-            categorys={country} />
+            categorys={countrys} />
     }
 
 
@@ -104,7 +104,7 @@ const TourPackage = () => {
             <div className="flex flex-col gap-10">
                 <Button onClick={() => { setAddForm(false); refetch() }}>Back</Button>
                 <Form
-                    categorys={country}
+                    categorys={countrys}
                     handleSubmit={() => handleSubmit(urlCreate('post', 'tour-package'), itemData)}
                 />
             </div>

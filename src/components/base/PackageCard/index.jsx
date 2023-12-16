@@ -1,7 +1,7 @@
 import ReadMore from '../ReadMore';
 
 const PackageCard = ({item}) => {
-    const {featureImage, title, _id} = item;
+    const {featureImage, title, _id } = item;
     const styled = {
         'backgroundImage': `url(${featureImage})`,
         'backgroundPosition': 'center',
