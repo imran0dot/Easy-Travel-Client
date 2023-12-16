@@ -12,6 +12,8 @@ const StudentVisa = () => {
         <LoadingSpinner />
     </div>
 
+    
+
     return (
         <div>
             <Head title="Student Visa | Easy Travels" />

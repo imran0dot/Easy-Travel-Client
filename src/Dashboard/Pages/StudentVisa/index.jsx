@@ -6,6 +6,9 @@ import Button from "@components/base/Button";
 import { useContext, useState } from "react";
 import { FromStates } from "../../Layout/Provider/formStateHandler";
 import Form from "../../Components/Form";
+import UpdatePost from "../updatePost";
+import getParams from "../../../utils/getParams";
+import urlCreate from "../../../utils/getUrlForSubmit";
 
 const StudentVisaList = () => {
     const { data, refetch, isPending, isLoading } = useData('student-visa');
@@ -26,6 +29,24 @@ const StudentVisaList = () => {
         featureImage,
         price,
         content
+    }
+
+    // UPDATE POST 
+
+    const itemData = {
+        title,
+        featureImage,
+        price,
+        content
+    }
+    const getIdFromParams = getParams('update-id');
+    if (getIdFromParams) {
+        return <UpdatePost
+            handleUpdate={() => {
+                handleSubmit(urlCreate('patch', `student-visa/${getIdFromParams}`), itemData),
+                    refetch();
+            }}
+            api={`student-visa/${getIdFromParams}`} />
     }
 
     return (

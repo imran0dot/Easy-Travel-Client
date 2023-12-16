@@ -8,6 +8,8 @@ import { FromStates } from "../../Layout/Provider/formStateHandler";
 import Form from "../../Components/Form";
 import { useLocation } from "react-router-dom";
 import UpdatePost from "../updatePost";
+import getParams from "../../../utils/getParams";
+import urlCreate from "../../../utils/getUrlForSubmit";
 
 
 export const country = {
@@ -73,12 +75,6 @@ const TourPackage = () => {
         refetch,
     }
 
-    const urlCreate = (type, url) => {
-        return {
-            type: type,
-            apiUrl: url
-        }
-    }
     const itemData = {
         title,
         featureImage,
@@ -89,18 +85,14 @@ const TourPackage = () => {
 
 
     // UPDATE POST 
-    const search = useLocation().search
-    const searchParams = new URLSearchParams(search);
-    const singleItemId = searchParams.get('update-id');
-
-
-    if (singleItemId) {
+    const getIdFromParams = getParams('update-id');
+    if (getIdFromParams) {
         return <UpdatePost
             handleUpdate={() => {
-                handleSubmit(urlCreate('patch', `tour-package/${singleItemId}`), itemData),
+                handleSubmit(urlCreate('patch', `tour-package/${getIdFromParams}`), itemData),
                     refetch();
             }}
-            api={`tour-package/${singleItemId}`}
+            api={`tour-package/${getIdFromParams}`}
             categorys={country} />
     }
 
