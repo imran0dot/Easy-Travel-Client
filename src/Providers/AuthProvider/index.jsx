@@ -34,7 +34,8 @@ const AuthProvider = ({ children }) => {
                 toast.success("Login Success");
                 setUserLoading(false);
             })
-            .catch(() => {
+            .catch((err) => {
+                console.log(err);
                 toast.error("something wernt wrong")
                 setUserLoading(false);
             });
