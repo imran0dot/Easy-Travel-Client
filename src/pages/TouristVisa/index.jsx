@@ -11,7 +11,7 @@ const TouristVisa = () => {
     const [callApi, setCallApi] = useState(apiUrl);
     const { data, isLoading, refetch } = useData(callApi);
     return (
-        <div>
+        <div className="mt-10">
             <Head title="Tourist Visa | Easy Travels" />
             <Container>
                 {/* SEARCH BAR  */}

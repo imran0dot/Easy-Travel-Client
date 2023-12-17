@@ -10,10 +10,10 @@ const Searchbar = ({ apiUrl, setCallApi, refetch, }) => {
     }
 
     return (
-        <>
+        <div>
             <form
                 onSubmit={handleSearchBar}
-                className="flex mt-10">
+                className="flex">
                 <input
                     className="border p-3 w-10/12"
                     placeholder="Search.."
@@ -22,8 +22,8 @@ const Searchbar = ({ apiUrl, setCallApi, refetch, }) => {
                     id="search" />
                 <Button>Search</Button>
             </form>
-            <p onClick={() => {setCallApi(apiUrl)}}  className="underline text-primary cursor-pointer">Clear filter</p>
-        </>
+            <p onClick={() => {setCallApi(apiUrl)}}  className="underline text-secondary cursor-pointer">Clear filter</p>
+        </div>
     );
 };
 

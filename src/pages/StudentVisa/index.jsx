@@ -14,7 +14,7 @@ const StudentVisa = () => {
 
 
     return (
-        <div>
+        <div className="mt-10">
             <Head title="Student Visa | Easy Travels" />
             <Container>
                 {/* SEARCH BAR  */}
