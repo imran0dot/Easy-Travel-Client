@@ -4,6 +4,7 @@ import InputFiled from "../../../components/base/InputFiled";
 import SimpleBoxContainer from "../../../components/base/SimpleBoxContainer";
 import FileUploadInput from "../../../components/base/FileUploadInput";
 import TextEditor from "../../../components/base/TextEditor";
+// import ImagePopUp from "../../../components/base/ImagesPopup";
 
 const Form = ({ handleSubmit, categorys, placeHolder }) => {
     const {
@@ -20,6 +21,8 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
         handleContentChange,
     } = useContext(FromStates);
 
+    console.log(placeHolder);
+
     const submitForm = (e) => {
         e.preventDefault();
         handleSubmit()
@@ -29,7 +32,7 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
 
 
     return (
-        <div>
+        <div className="relative">
             <form onSubmit={submitForm} className="flex flex-col gap-10 w-full">
                 <div className="flex gap-10">
                     <div className="flex flex-col  gap-10 w-8/12">
@@ -39,7 +42,6 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
                                 input={placeHolder ? placeHolder?.title : title}
                                 onChange={handleTitleChange} label="Title" />
                         </SimpleBoxContainer>
-
                         {/* TEST EDITOR  */}
                         <TextEditor handleChange={handleContentChange} content={placeHolder ? placeHolder?.content : content} />
 
@@ -87,6 +89,8 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
                 </div>
 
             </form>
+
+            {/* <ImagePopUp /> */}
         </div>
     );
 };

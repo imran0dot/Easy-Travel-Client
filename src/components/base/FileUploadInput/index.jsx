@@ -13,7 +13,7 @@ const FileUploadInput = ({ imgSrc, setFeatureImage, handleChange, handleRemove }
     return (
         <div className='w-full relative'>
             <SimpleBoxContainer>
-                <div className='min-h-96'>
+                <div className='h-96'>
                     <SimpleHeading heading="Feature Image" />
                     {imgSrc ? <div className='relative'>
                         {/* TODO */}
@@ -23,14 +23,14 @@ const FileUploadInput = ({ imgSrc, setFeatureImage, handleChange, handleRemove }
                     </div> : <div>
                         {loading ?
 
-                            <div className='flex flex-col justify-center items-center absolute top-0 bottom-0 left-0 right-0 bg-slate-200 text-secondary font-bold bg-opacity-40 min-h-[200px]'>
+                            <div className='flex flex-col justify-center items-center absolute top-0 bottom-0 left-0 right-0 text-secondary font-bold bg-opacity-40'>
                                 <LoadingSpinner />
                                 <p>Image Uploading on Cloudinary</p>
                             </div> :
 
                             <div>
                                 <label htmlFor="image" className="w-full cursor-pointer" >
-                                    <div className="text-center text-4xl font-bold h-96 border flex flex-col justify-center items-center">
+                                    <div className="text-center text-4xl font-bold p-32 border flex flex-col justify-center items-center">
                                         <BsCloudUploadFill />
                                         Upload
                                     </div>
