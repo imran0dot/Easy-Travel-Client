@@ -20,11 +20,9 @@ const ImagePopUp = () => {
         });
     }
 
-    console.log(skip);
-
     useEffect(() => {
         axios(`http://localhost:3500/image-upload?skip=${skip}`).then(res => setImages(res.data));
-    }, [skip, limit])
+    }, [skip])
 
     return (
         <div className='bg-white border p-3 rounded-md shadow-md absolute left-0 right-0 top-0 bottom-0 z-40'>

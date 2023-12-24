@@ -41,7 +41,7 @@ const router = createBrowserRouter([
                 element: <TouristVisa />,
             },
             {
-                path: "/student-visa",
+                path: "/study-abroad",
                 element: <StudentVisa />
             },
             {
