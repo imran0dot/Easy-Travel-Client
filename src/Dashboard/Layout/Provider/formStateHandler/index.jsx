@@ -7,10 +7,10 @@ import fileUpload from "../../../../utils/fileUploader";
 export const FromStates = createContext(null);
 
 const FromStatesProvider = ({ children }) => {
-    const [title, setTitle] = useState(localStorage.getItem("title") || "");
+    const [title, setTitle] = useState(localStorage.getItem("title") ? JSON.parse(localStorage.getItem("title")) : " ")
     const [content, setContent] = useState("");
-    const [featureImage, setFeatureImage] = useState(JSON.parse(localStorage.getItem("image")) || null);
-    const [price, setPrice] = useState(localStorage.getItem("price") || "");
+    const [featureImage, setFeatureImage] = useState(localStorage.getItem("image") ? JSON.parse(localStorage.getItem("image")) : null);
+    const [price, setPrice] = useState(localStorage.getItem("price") || "")
     const [categoryItem, setCategoryItem] = useState("");
 
 
@@ -79,7 +79,6 @@ const FromStatesProvider = ({ children }) => {
                 axios.patch(apiUrl, data)
                     .then(res => {
                         if (res.status === 200) {
-                            clearStoreage();
                             toast.success("post has been updated!")
                         } else {
                             toast.error("Something went Wrong! Please Full Fill All Require Items")

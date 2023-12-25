@@ -5,7 +5,6 @@ import Review from "@components/custom/HomeComponents/Review";
 import Head from "@components/base/Head";
 
 const Home = () => {
-
     return (
         <div>
             <Head title="Provideing inspiration abroad | Easy Travels" />
