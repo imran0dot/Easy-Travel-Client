@@ -6,7 +6,6 @@ import { useContext, useState } from "react";
 import Button from "@components/base/Button";
 import { FromStates } from "../../Layout/Provider/formStateHandler";
 import Form from "../../Components/Form";
-import { useLocation } from "react-router-dom";
 import UpdatePost from "../updatePost";
 import getParams from "../../../utils/getParams";
 import urlCreate from "../../../utils/getUrlForSubmit";
@@ -93,7 +92,7 @@ const TourPackage = () => {
                     refetch();
             }}
             api={`tour-package/${getIdFromParams}`}
-            categorys={countrys} />
+            countrys={countrys} />
     }
 
 
@@ -104,8 +103,9 @@ const TourPackage = () => {
             <div className="flex flex-col gap-10">
                 <Button onClick={() => { setAddForm(false); refetch() }}>Back</Button>
                 <Form
-                    categorys={countrys}
+                    countrys={countrys}
                     handleSubmit={() => handleSubmit(urlCreate('post', 'tour-package'), itemData)}
+                    priceElement={true}
                 />
             </div>
 

@@ -4,9 +4,10 @@ import InputFiled from "../../../components/base/InputFiled";
 import SimpleBoxContainer from "../../../components/base/SimpleBoxContainer";
 import FileUploadInput from "../../../components/base/FileUploadInput";
 import TextEditor from "../../../components/base/TextEditor";
+import SimpleHeading from "../../../components/base/SimpleHeading";
 // import ImagePopUp from "../../../components/base/ImagesPopup";
 
-const Form = ({ handleSubmit, categorys, placeHolder }) => {
+const Form = ({ handleSubmit, countrys, placeHolder, priceElement }) => {
     const {
         title,
         handleTitleChange,
@@ -46,12 +47,13 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
                         <TextEditor handleChange={handleContentChange} content={placeHolder ? placeHolder?.content : content} />
 
                         {/* CATEGORY SECTION  */}
-                        {categorys &&
+                        {countrys &&
                             <SimpleBoxContainer>
-                                <p className="text-2xl font-bold mb-2">Select {categorys?.name}</p>
+                                <SimpleHeading heading={`Select ${countrys?.name}`} />
+                                {/* <p className="text-xl font-bold mb-2"></p> */}
                                 <select onClick={(e) => handleSelectItemChange(e.target.value)} className="select select-bordered w-full rounded-none">
                                     <option disabled selected value={null}>Please Select A Option</option>
-                                    {categorys?.items.map((item, index) => {
+                                    {countrys?.items.map((item, index) => {
                                         // TODO 
                                         // if (placeHolder?.categoryItem === item.name) {
                                         //     return <option selected key={index}>{item.name}</option>
@@ -68,9 +70,10 @@ const Form = ({ handleSubmit, categorys, placeHolder }) => {
                     <div className="flex flex-col gap-10 w-4/12">
 
                         {/* PRICE INPUT  */}
-                        <SimpleBoxContainer>
-                            <InputFiled type="number" input={placeHolder ? placeHolder?.price : price} onChange={handlePriceChange} label="Price" />
-                        </SimpleBoxContainer>
+                        {priceElement &&
+                            <SimpleBoxContainer>
+                                <InputFiled type="number" input={placeHolder ? placeHolder?.price : price} onChange={handlePriceChange} label="Price" />
+                            </SimpleBoxContainer>}
 
 
                         {/* IMAGE INPUT  */}

@@ -16,8 +16,8 @@
             "icon": "MdOutlineDownhillSkiing"
         },
         {
-            "label": "Student Visa",
-            "link": "/dashboard/student-visa",
+            "label": "Study Abroad",
+            "link": "/dashboard/study-abroad",
             "icon": "FaUserGraduate"
         }
     ],

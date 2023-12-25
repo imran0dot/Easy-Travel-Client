@@ -16,7 +16,7 @@ const DashboardSidebar = () => {
 
 
     return (
-        <div className="absolute top-0 w-full h-full pt-24 flex flex-col justify-between text-white font-bold text-2xl list-none " >
+        <div className="absolute top-0 w-full h-full pt-24 flex flex-col justify-between text-white font-bold text-xl list-none " >
 
             <div>
                 {

@@ -24,7 +24,7 @@ const InputFiled = ({ index, input, onChange, label, placeholder, type, name }) 
                 <SimpleHeading heading={label} />
                 <input
                     name={name}
-                    className="w-full border p-5 text-lg input border-gray-300 rounded-none focus:outline-none"
+                    className="w-full border p-5 text-sm input border-gray-300 rounded-none focus:outline-none"
                     type={type ? type : "text"}
                     placeholder={placeholder ? placeholder : "Write Here..."}
                     value={handleInput ? handleInput : ""}

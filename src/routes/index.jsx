@@ -15,7 +15,7 @@ import PrivateRoute from '../Providers/PrivateRoute';
 import Login from '../pages/Login';
 import PrivacyPolicy from '../pages/PrivacyPolicy';
 import TermsAndCondition from '../pages/TermsAndCondition';
-import StudentVisaList from '../Dashboard/Pages/StudentVisa';
+import StudentAbroad from '../Dashboard/Pages/StudentAbroad';
 import TouristVisaList from '../Dashboard/Pages/TouristVisa';
 import DashboardMain from '../Dashboard/Pages/main';
 
@@ -94,8 +94,8 @@ const router = createBrowserRouter([
             },
             // Student Visa routes 
             {
-                path: "/dashboard/student-visa",
-                element: <StudentVisaList />,
+                path: "/dashboard/study-abroad",
+                element: <StudentAbroad />,
             }
         ]
     },

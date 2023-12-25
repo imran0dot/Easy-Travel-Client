@@ -9,8 +9,9 @@ import Form from "../../Components/Form";
 import UpdatePost from "../updatePost";
 import getParams from "../../../utils/getParams";
 import urlCreate from "../../../utils/getUrlForSubmit";
+import { countrys } from "../TourPackage";
 
-const StudentVisaList = () => {
+const StudentAbroad = () => {
     const { data, refetch, isPending, isLoading } = useData('student-visa');
     const { handleDeleteSinglePost, handleSubmit, title, featureImage, price, content } = useContext(FromStates);
     const [addForm, setAddForm] = useState(false);
@@ -56,6 +57,7 @@ const StudentVisaList = () => {
                 <Button onClick={() => { setAddForm(false); refetch() }}>Back</Button>
                 <Form
                     handleSubmit={() => handleSubmit(api, postData)}
+                    countrys={countrys}
                 />
             </div>
 
@@ -74,4 +76,4 @@ const StudentVisaList = () => {
     );
 };
 
-export default StudentVisaList;
+export default StudentAbroad;

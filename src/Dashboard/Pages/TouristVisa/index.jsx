@@ -59,6 +59,7 @@ const TouristVisaList = () => {
                 <Button onClick={() => { setAddForm(false); refetch() }}>Back</Button>
                 <Form
                     handleSubmit={() => handleSubmit(api, postData)}
+                    priceElement={true}
                 />
             </div>
 
