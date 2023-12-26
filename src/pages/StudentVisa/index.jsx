@@ -4,11 +4,17 @@ import Head from "@components/base/Head";
 import useData from "../../hooks/useData";
 import LoadingSpinner from "@components/base/LoadingSpinner";
 import Searchbar from "../../components/base/SearchBar";
+import { useState } from "react";
 
 
 const StudentVisa = () => {
     const apiUrl = 'study-abroad';
+    const [serachQuary, setSearchQueary] = useState("");
+    const [filter, setFilter] = useState(false);
+
     const { data, isLoading, refetch } = useData(apiUrl);
+
+
 
 
     return (
@@ -16,8 +22,10 @@ const StudentVisa = () => {
             <Head title="Study Abroad | Easy Travels" />
             <Container>
                 {/* SEARCH BAR  */}
-                <Searchbar 
-                refetch={refetch} />
+                <Searchbar
+                    filter={filter}
+                    onChange={() => setFilter(false)}
+                    setSearchQueary={setSearchQueary} />
 
                 {/* LIST ITEMS  */}
                 <div>

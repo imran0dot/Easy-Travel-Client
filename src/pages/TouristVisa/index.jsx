@@ -4,18 +4,36 @@ import Head from "@components/base/Head";
 import useData from "../../hooks/useData";
 import LoadingSpinner from "@components/base/LoadingSpinner";
 import Searchbar from "../../components/base/SearchBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ClearFilter from "../../utils/clearFilter";
 
 const TouristVisa = () => {
-    const apiUrl = 'tourist-visa';
-    const { data, isLoading, refetch } = useData(apiUrl);
+    const [touristVisaApi, setTouristVisaApi] = useState("tourist-visa")
+    const [serachQuary, setSearchQueary] = useState("");
+    const [filter, setFilter] = useState(false);
+    const { data, isLoading } = useData(touristVisaApi);
+
+    useEffect(() => {
+        if (filter) {
+            setSearchQueary('');
+        }
+        setTouristVisaApi(`tourist-visa?search=${serachQuary && serachQuary}`)
+    }, [serachQuary, filter]);
+
+    
     return (
         <div className="mt-10">
             <Head title="Tourist Visa | Easy Travels" />
             <Container>
-                {/* SEARCH BAR  */}
-                <Searchbar 
-                refetch={refetch} />
+                {/* Search bar for filter  */}
+                <div>
+                    <Searchbar
+                        filter={filter}
+                        onChange={() => setFilter(false)}
+                        setSearchQueary={setSearchQueary} />
+
+                    <ClearFilter onClick={() => setFilter(true)} />
+                </div>
 
                 {/* GIRD ITEM  */}
                 <div>
