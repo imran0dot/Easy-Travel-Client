@@ -3,14 +3,12 @@ import Container from "@components/base/Container";
 import Head from "@components/base/Head";
 import useData from "../../hooks/useData";
 import LoadingSpinner from "@components/base/LoadingSpinner";
-import { useState } from "react";
 import Searchbar from "../../components/base/SearchBar";
 
 
 const StudentVisa = () => {
     const apiUrl = 'study-abroad';
-    const [callApi, setCallApi] = useState(apiUrl);
-    const { data, isLoading, refetch } = useData(callApi);
+    const { data, isLoading, refetch } = useData(apiUrl);
 
 
     return (
@@ -18,7 +16,8 @@ const StudentVisa = () => {
             <Head title="Study Abroad | Easy Travels" />
             <Container>
                 {/* SEARCH BAR  */}
-                <Searchbar apiUrl={apiUrl} setCallApi={setCallApi} refetch={refetch} />
+                <Searchbar 
+                refetch={refetch} />
 
                 {/* LIST ITEMS  */}
                 <div>

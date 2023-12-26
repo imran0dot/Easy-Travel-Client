@@ -8,14 +8,14 @@ import { useState } from "react";
 
 const TouristVisa = () => {
     const apiUrl = 'tourist-visa';
-    const [callApi, setCallApi] = useState(apiUrl);
-    const { data, isLoading, refetch } = useData(callApi);
+    const { data, isLoading, refetch } = useData(apiUrl);
     return (
         <div className="mt-10">
             <Head title="Tourist Visa | Easy Travels" />
             <Container>
                 {/* SEARCH BAR  */}
-                <Searchbar apiUrl={apiUrl} setCallApi={setCallApi} refetch={refetch} />
+                <Searchbar 
+                refetch={refetch} />
 
                 {/* GIRD ITEM  */}
                 <div>

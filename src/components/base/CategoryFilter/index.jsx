@@ -1,13 +1,7 @@
-
-const CategoryFilter = ({ categorys, refetch }) => {
-    const handleSearchBar = (e) => {
-        console.log(e.target.value);
-        refetch();
-    }
-
+const CategoryFilter = ({ onChange, categorys }) => {
     //TODO
     return (
-        <select className="p-3 border bg-white w-full" onChange={handleSearchBar}>
+        <select className="p-3 border bg-white w-full" onChange={onChange}>
             <option className="p-4 shadow cursor-pointer" >All Country</option>
             {
                 categorys?.items.map((category, index) => {

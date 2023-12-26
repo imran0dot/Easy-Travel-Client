@@ -1,11 +1,11 @@
 import Button from "../Button";
 
-const Searchbar = ({ apiUrl, setCallApi, refetch, }) => {
+const Searchbar = ({ setSearchQueary, refetch, }) => {
 
     const handleSearchBar = (e) => {
         e.preventDefault();
         const value = e.target.search.value;
-        setCallApi(`${apiUrl}?search=${value}`);
+        setSearchQueary(value.toLowerCase())
         refetch();
     }
 

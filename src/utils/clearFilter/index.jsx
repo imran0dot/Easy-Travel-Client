@@ -1,6 +1,8 @@
-const ClearFilter = ({ apiUrl, setCallApi }) => {
+const ClearFilter = () => {
     return (
-        <p onClick={() => { setCallApi(apiUrl) }} className="underline text-secondary cursor-pointer">Clear filter</p>
+        <p 
+        // onClick={() => {  }} 
+        className="underline text-secondary cursor-pointer">Clear filter</p>
     );
 };
 
