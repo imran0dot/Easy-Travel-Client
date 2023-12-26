@@ -11,7 +11,7 @@ const FromStatesProvider = ({ children }) => {
     const [content, setContent] = useState("");
     const [featureImage, setFeatureImage] = useState(localStorage.getItem("image") ? JSON.parse(localStorage.getItem("image")) : null);
     const [price, setPrice] = useState(localStorage.getItem("price") || "")
-    const [categoryItem, setCategoryItem] = useState("");
+    const [country, setCountry] = useState("");
 
 
     // TITLE
@@ -45,9 +45,9 @@ const FromStatesProvider = ({ children }) => {
     };
 
     // SELECT ITEM 
-    const handleSelectItemChange = (value) => {
-        setCategoryItem(value);
-        localStorage.setItem("category", JSON.stringify(value));
+    const handleCountryChange = (value) => {
+        setCountry(value);
+        localStorage.setItem("country", JSON.stringify(value));
     }
 
 
@@ -61,12 +61,12 @@ const FromStatesProvider = ({ children }) => {
         setContent("")
         setPrice("")
         setFeatureImage("")
-        setCategoryItem("")
+        setCountry("")
         localStorage.removeItem("title")
         localStorage.removeItem("content")
         localStorage.removeItem("price")
         localStorage.removeItem("image");
-        localStorage.removeItem("category")
+        localStorage.removeItem("country")
     }
 
     // FORM SUBMIT 
@@ -118,7 +118,7 @@ const FromStatesProvider = ({ children }) => {
         axios.delete(`${api}/${id}`)
             .then(() => {
                 refetch();
-                toast.success("item deleted")
+                toast.success("Post deleted successfully.")
             }).catch((err) => {
                 toast.error(`something went wrong ${err}`)
             })
@@ -142,9 +142,9 @@ const FromStatesProvider = ({ children }) => {
         setPrice,
         handlePriceChange,
 
-        categoryItem,
-        setCategoryItem,
-        handleSelectItemChange,
+        country,
+        setCountry,
+        handleCountryChange,
 
         handleSubmit,
         handleDeleteSinglePost

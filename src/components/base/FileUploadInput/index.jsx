@@ -13,7 +13,7 @@ const FileUploadInput = ({ imgSrc, setFeatureImage, handleChange, handleRemove }
     return (
         <div className='w-full relative'>
             <SimpleBoxContainer>
-                <div className='h-96'>
+                <div className='h-96 overflow-hidden'>
                     <SimpleHeading heading="Feature Image" />
                     {imgSrc ? <div className='relative'>
                         {/* TODO */}

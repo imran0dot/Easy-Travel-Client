@@ -8,14 +8,14 @@ import Searchbar from "../../components/base/SearchBar";
 
 
 const StudentVisa = () => {
-    const apiUrl = 'student-visa';
+    const apiUrl = 'study-abroad';
     const [callApi, setCallApi] = useState(apiUrl);
     const { data, isLoading, refetch } = useData(callApi);
 
 
     return (
         <div className="mt-10">
-            <Head title="Student Visa | Easy Travels" />
+            <Head title="Study Abroad | Easy Travels" />
             <Container>
                 {/* SEARCH BAR  */}
                 <Searchbar apiUrl={apiUrl} setCallApi={setCallApi} refetch={refetch} />

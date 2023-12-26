@@ -12,21 +12,22 @@ import urlCreate from "../../../utils/getUrlForSubmit";
 import { countrys } from "../TourPackage";
 
 const StudentAbroad = () => {
-    const { data, refetch, isPending, isLoading } = useData('student-visa');
-    const { handleDeleteSinglePost, handleSubmit, title, featureImage, price, content } = useContext(FromStates);
+    const { data, refetch, isPending, isLoading } = useData('study-abroad');
+    const { handleDeleteSinglePost, handleSubmit, title, featureImage, price, content, country } = useContext(FromStates);
     const [addForm, setAddForm] = useState(false);
 
     const functions = {
-        api: "student-visa",
+        api: "study-abroad",
         handleDeleteSinglePost,
         refetch,
     }
 
 
     // FOR SUMBIT POST 
-    const api = { type: "post", apiUrl: 'student-visa' };
+    const api = { type: "post", apiUrl: 'study-abroad' };
     const postData = {
         title,
+        countryName: country,
         featureImage,
         price,
         content
@@ -44,10 +45,10 @@ const StudentAbroad = () => {
     if (getIdFromParams) {
         return <UpdatePost
             handleUpdate={() => {
-                handleSubmit(urlCreate('patch', `student-visa/${getIdFromParams}`), itemData),
+                handleSubmit(urlCreate('patch', `study-abroad/${getIdFromParams}`), itemData),
                     refetch();
             }}
-            api={`student-visa/${getIdFromParams}`} />
+            api={`study-abroad/${getIdFromParams}`} />
     }
 
     return (

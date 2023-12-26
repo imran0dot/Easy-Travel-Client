@@ -18,7 +18,7 @@ const Form = ({ handleSubmit, countrys, placeHolder, priceElement }) => {
         content,
         price,
         handlePriceChange,
-        handleSelectItemChange,
+        handleCountryChange,
         handleContentChange,
     } = useContext(FromStates);
 
@@ -51,13 +51,9 @@ const Form = ({ handleSubmit, countrys, placeHolder, priceElement }) => {
                             <SimpleBoxContainer>
                                 <SimpleHeading heading={`Select ${countrys?.name}`} />
                                 {/* <p className="text-xl font-bold mb-2"></p> */}
-                                <select onClick={(e) => handleSelectItemChange(e.target.value)} className="select select-bordered w-full rounded-none">
+                                <select onClick={(e) => handleCountryChange(e.target.value)} className="select select-bordered w-full rounded-none">
                                     <option disabled selected value={null}>Please Select A Option</option>
                                     {countrys?.items.map((item, index) => {
-                                        // TODO 
-                                        // if (placeHolder?.categoryItem === item.name) {
-                                        //     return <option selected key={index}>{item.name}</option>
-                                        // }
                                         return <option key={index}>{item.name}</option>
                                     })}
                                 </select>
