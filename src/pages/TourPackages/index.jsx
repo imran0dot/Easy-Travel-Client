@@ -7,6 +7,7 @@ import { countrys } from "../../Dashboard/Pages/TourPackage";
 import Searchbar from "../../components/base/SearchBar";
 import { useState } from "react";
 import CategoryFilter from "../../components/base/CategoryFilter";
+import ClearFilter from "../../utils/clearFilter";
 
 
 const TourPackages = () => {
@@ -18,14 +19,12 @@ const TourPackages = () => {
         <Container>
             {/* TODO  */}
             <Head title="Tour Packages | Easy Travels" />
-            <div className="flex justify-start items-start gap-10 w-full mt-10">
-                <div className="w-1/2">
-                    <Searchbar apiUrl={apiUrl} setCallApi={setCallApi} refetch={refetch} />
-                </div>
-                <div className="w-1/2 ">
-                    <CategoryFilter categorys={countrys} refetch={refetch} />
-                </div>
+            <div className="grid md:grid-cols-2 justify-center items-center gap-10 w-full mt-10">
+                <CategoryFilter categorys={countrys} refetch={refetch} />
+                <Searchbar apiUrl={apiUrl} setCallApi={setCallApi} refetch={refetch} />
             </div>
+            <ClearFilter apiUrl={apiUrl} setCallApi={setCallApi}/>
+
 
             {/* LIST ITEMS  */}
             <div className="w-full mt-10">

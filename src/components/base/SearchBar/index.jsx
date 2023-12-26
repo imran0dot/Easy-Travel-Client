@@ -22,7 +22,6 @@ const Searchbar = ({ apiUrl, setCallApi, refetch, }) => {
                     id="search" />
                 <Button>Search</Button>
             </form>
-            <p onClick={() => {setCallApi(apiUrl)}}  className="underline text-secondary cursor-pointer">Clear filter</p>
         </div>
     );
 };
