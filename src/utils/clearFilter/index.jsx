@@ -1,7 +1,7 @@
-const ClearFilter = () => {
+const ClearFilter = ({onClick}) => {
     return (
         <p 
-        // onClick={() => {  }} 
+        onClick={onClick} 
         className="underline text-secondary cursor-pointer">Clear filter</p>
     );
 };

@@ -8,41 +8,35 @@ import Searchbar from "../../components/base/SearchBar";
 import { useEffect, useState } from "react";
 import CategoryFilter from "../../components/base/CategoryFilter";
 import ClearFilter from "../../utils/clearFilter";
-import { useLocation, useNavigate } from "react-router-dom";
 
 
 const TourPackages = () => {
     const [tourPackageApi, setTourpackageAPi] = useState("tour-package")
     const [serachQuary, setSearchQueary] = useState("");
-    const [countryQuary, setCountryQueary] = useState("");
-    const navigate = useNavigate();
-    let location = useLocation();
-    let searchParams = new URLSearchParams(location.search);
-
-    let searchValue = searchParams.get('search');
-    let countryValue = searchParams.get('country');
-
-
-    const { data, isLoading, refetch } = useData(tourPackageApi);
-
+    const [countryQuery, setCountryQueary] = useState("");
+    const { data, isLoading } = useData(tourPackageApi);
+    const [filter, setFilter] = useState(false);
 
     // conuntry Handle change 
-
     const handleCountryChange = (e) => {
         const countryValue = e.target.value.toLowerCase();
         const spliceValue = countryValue.split(" ").join("-");
+        setFilter(false);
+
         if (spliceValue === "all-country") {
-            navigate(`?search=${serachQuary}`);
-            setTourpackageAPi(`tour-package?search=${searchValue && searchValue }`)
+            setCountryQueary("")
         } else {
-            navigate(`?search=${serachQuary}&&country=${countryValue}`)
-            setTourpackageAPi(`tour-package?search=${searchValue}&&country=${countryValue}`)
+            setCountryQueary(countryValue)
         }
-        refetch();
     }
 
     useEffect(() => {
-    }, [serachQuary, countryQuary])
+        if (filter) {
+            setSearchQueary('');
+            setCountryQueary('');
+        }
+        setTourpackageAPi(`tour-package?search=${serachQuary && serachQuary}&&country=${countryQuery && countryQuery}`)
+    }, [countryQuery, serachQuary, filter])
 
 
     return (
@@ -52,17 +46,18 @@ const TourPackages = () => {
             <div className="grid md:grid-cols-2 justify-center items-center gap-10 w-full mt-10">
                 {/* Country Items filter  */}
                 <CategoryFilter
+                    filter={filter}
                     onChange={handleCountryChange}
-                    categorys={countrys}
-                    refetch={refetch} />
+                    categorys={countrys} />
 
                 {/* Search bar for filter  */}
                 <Searchbar
-                    setSearchQueary={setSearchQueary}
-                    refetch={refetch} />
+                    filter={filter}
+                    onChange={() => setFilter(false)}
+                    setSearchQueary={setSearchQueary} />
 
             </div>
-            <ClearFilter />
+            <ClearFilter onClick={() => setFilter(true)} />
 
 
             {/* LIST ITEMS  */}
