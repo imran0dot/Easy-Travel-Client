@@ -4,6 +4,7 @@ import TopSection from "@components/base/TopSection";
 import { useLocation } from "react-router-dom";
 import useData from "../../hooks/useData";
 import SimpleBoxContainer from "../../components/base/SimpleBoxContainer";
+import LoadingSpinner from "../../components/base/LoadingSpinner";
 
 const SingleTourPackage = () => {
     const { pathname } = useLocation();
@@ -12,10 +13,15 @@ const SingleTourPackage = () => {
 
     const { data } = useData(`${url[0]}/${url[1]}`);
     const { title, content, featureImage } = data ?? {};
+
+    if (!data) {
+        return <LoadingSpinner />
+    }
+
     return (
         <div>
             {/* top section  */}
-            <TopSection  title={title ? title : ""} />
+            <TopSection title={title ? title : ""} />
 
             {/* body */}
             <Container>

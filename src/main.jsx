@@ -16,8 +16,8 @@ import store from './redux/store';
 
 const queryClient = new QueryClient()
 
-axios.defaults.baseURL = 'http://localhost:3500/';
-// axios.defaults.baseURL = 'https://easy-travel-server-gamma.vercel.app/';
+// axios.defaults.baseURL = 'http://localhost:3500/';
+axios.defaults.baseURL = 'https://easy-travel-server-gamma.vercel.app/';
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
 // axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
