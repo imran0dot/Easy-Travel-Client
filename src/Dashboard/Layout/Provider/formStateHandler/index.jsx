@@ -7,10 +7,10 @@ import fileUpload from "../../../../utils/fileUploader";
 export const FromStates = createContext(null);
 
 const FromStatesProvider = ({ children }) => {
-    const [title, setTitle] = useState(localStorage.getItem("title") ? JSON.parse(localStorage.getItem("title")) : " ")
+    const [title, setTitle] = useState("")
     const [content, setContent] = useState("");
-    const [featureImage, setFeatureImage] = useState(localStorage.getItem("image") ? JSON.parse(localStorage.getItem("image")) : null);
-    const [price, setPrice] = useState(localStorage.getItem("price") || "")
+    const [featureImage, setFeatureImage] = useState(null);
+    const [price, setPrice] = useState("")
     const [country, setCountry] = useState("");
 
 
@@ -18,19 +18,16 @@ const FromStatesProvider = ({ children }) => {
 
     const handleTitleChange = (inputTitel) => {
         setTitle(inputTitel);
-        localStorage.setItem("title", JSON.stringify(inputTitel));
     }
 
     // CONTENT 
     const handleContentChange = (newContent) => {
         setContent(newContent);
-        localStorage.setItem('content', newContent)
     }
 
     // PRICE 
     const handlePriceChange = (inputPrice) => {
         setPrice(inputPrice);
-        localStorage.setItem('price', inputPrice)
     }
 
     // IMAGE 
@@ -38,7 +35,6 @@ const FromStatesProvider = ({ children }) => {
         const file = e.target.files[0];
         setLoading(true)
         fileUpload(file).then(res => {
-            localStorage.setItem("image", JSON.stringify(res?.data?.url))
             setFeatureImage(res?.data?.url)
             setLoading(false)
         }).catch(() => setLoading(true))
@@ -47,12 +43,10 @@ const FromStatesProvider = ({ children }) => {
     // SELECT ITEM 
     const handleCountryChange = (value) => {
         setCountry(value);
-        localStorage.setItem("country", JSON.stringify(value));
     }
 
 
     const handleRemoveFeatureImage = () => {
-        localStorage.removeItem('image');
         setFeatureImage(null)
     }
 
@@ -62,11 +56,6 @@ const FromStatesProvider = ({ children }) => {
         setPrice("")
         setFeatureImage("")
         setCountry("")
-        localStorage.removeItem("title")
-        localStorage.removeItem("content")
-        localStorage.removeItem("price")
-        localStorage.removeItem("image");
-        localStorage.removeItem("country")
     }
 
     // FORM SUBMIT 
