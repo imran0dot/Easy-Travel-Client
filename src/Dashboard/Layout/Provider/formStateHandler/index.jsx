@@ -64,7 +64,7 @@ const FromStatesProvider = ({ children }) => {
 
         if (type === "patch") {
             try {
-                console.log(data);
+
                 axios.patch(apiUrl, data)
                     .then(res => {
                         if (res.status === 200) {

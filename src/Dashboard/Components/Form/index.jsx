@@ -22,15 +22,13 @@ const Form = ({ handleSubmit, countrys, placeHolder, priceElement }) => {
         handleContentChange,
     } = useContext(FromStates);
 
-    console.log(placeHolder);
 
     const submitForm = (e) => {
         e.preventDefault();
         handleSubmit()
     };
 
-
-
+    console.log(placeHolder);
 
     return (
         <div className="relative">

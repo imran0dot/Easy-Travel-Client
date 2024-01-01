@@ -66,7 +66,7 @@ export const countrys = {
 const TourPackage = () => {
     const { data, refetch, isPending, isLoading } = useData('tour-package');
     const [addForm, setAddForm] = useState(false)
-    const { handleDeleteSinglePost, handleSubmit, title, featureImage, price, content, categoryItem } = useContext(FromStates);
+    const { handleDeleteSinglePost, handleSubmit, title, featureImage, price, content, country } = useContext(FromStates);
 
     const functions = {
         api: "tour-package",
@@ -74,12 +74,13 @@ const TourPackage = () => {
         refetch,
     }
 
+
     const itemData = {
         title,
         featureImage,
         price,
         content,
-        categoryItem
+        'countryName': country
     }
 
 

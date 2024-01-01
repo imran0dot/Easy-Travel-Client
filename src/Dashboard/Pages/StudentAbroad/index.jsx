@@ -23,6 +23,7 @@ const StudentAbroad = () => {
     }
 
 
+
     // FOR SUMBIT POST 
     const api = { type: "post", apiUrl: 'study-abroad' };
     const postData = {

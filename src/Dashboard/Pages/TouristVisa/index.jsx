@@ -45,6 +45,7 @@ const TouristVisaList = () => {
     const getIdFromParams = getParams('update-id');
     if (getIdFromParams) {
         return <UpdatePost
+            priceElement={true}
             handleUpdate={() => {
                 handleSubmit(urlCreate('patch', `tourist-visa/${getIdFromParams}`), itemData),
                     refetch();

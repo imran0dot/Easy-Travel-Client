@@ -57,6 +57,7 @@ const TourPackages = () => {
                     setSearchQueary={setSearchQueary} />
 
             </div>
+            
             <ClearFilter onClick={() => setFilter(true)} />
 
 
