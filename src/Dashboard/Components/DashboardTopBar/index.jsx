@@ -7,7 +7,7 @@ const DashboardTopBar = () => {
     const [popUp, setPopup] = useState(false);
     const { logOut } = useContext(Auth)
     return (
-        <div className="shadow-lg flex items-center h-24 justify-between border-slate-500 px-5 sticky z-10 top-0 bg-white">
+        <div className="shadow-lg flex items-center h-24 justify-between border-slate-500 px-5 sticky z-50 top-0 bg-white">
 
             <div className="w-2/4">
                 <Logo width={"10%"} />

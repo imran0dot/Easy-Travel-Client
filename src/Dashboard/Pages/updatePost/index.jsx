@@ -7,7 +7,14 @@ const UpdatePost = ({ api, categorys, handleUpdate, priceElement }) => {
 
 
     useEffect(() => {
-        axios(api).then(res => setPlaceHolder(res.data)).catch(() => toast.error("data not found!"))
+        axios(api)
+            .then(res => {
+                setPlaceHolder(res.data)
+            })
+            .catch(() => {
+                toast.error("data not found!")
+            }
+            )
     }, []);
 
     return <Form priceElement={priceElement} categorys={categorys} placeHolder={placeHolder} handleSubmit={handleUpdate} />
