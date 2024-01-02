@@ -2,14 +2,16 @@ import SimpleBoxContainer from '../SimpleBoxContainer';
 import SimpleHeading from '../SimpleHeading';
 import { BsCloudUploadFill } from 'react-icons/bs'
 import DeleteBtn from '../DeleteBtn';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import LoadingSpinner from '../LoadingSpinner';
 
-const FileUploadInput = ({ imgSrc, setFeatureImage, handleChange, handleRemove }) => {
+const FileUploadInput = ({ placeHolder, imgSrc, setFeatureImage, handleChange, handleRemove }) => {
     const [loading, setLoading] = useState(false);
-    if(imgSrc){
-        setFeatureImage(imgSrc)
-    }
+
+    useEffect(() => {
+        setFeatureImage(placeHolder)
+    }, [placeHolder])
+
     return (
         <div className='w-full relative'>
             <SimpleBoxContainer>

@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FromStates } from "../../Layout/Provider/formStateHandler";
 import InputFiled from "../../../components/base/InputFiled";
 import SimpleBoxContainer from "../../../components/base/SimpleBoxContainer";
 import FileUploadInput from "../../../components/base/FileUploadInput";
 import TextEditor from "../../../components/base/TextEditor";
 import SimpleHeading from "../../../components/base/SimpleHeading";
+import { useLocation } from "react-router-dom";
 // import ImagePopUp from "../../../components/base/ImagesPopup";
 
 const Form = ({ handleSubmit, countrys, placeHolder, priceElement }) => {
@@ -17,6 +18,7 @@ const Form = ({ handleSubmit, countrys, placeHolder, priceElement }) => {
         handleRemoveFeatureImage,
         content,
         price,
+        clearStoreage,
         handlePriceChange,
         handleCountryChange,
         handleContentChange,
@@ -28,7 +30,11 @@ const Form = ({ handleSubmit, countrys, placeHolder, priceElement }) => {
         handleSubmit()
     };
 
-    console.log(placeHolder);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        clearStoreage()
+    }, [pathname])
 
     return (
         <div className="relative">
@@ -72,7 +78,8 @@ const Form = ({ handleSubmit, countrys, placeHolder, priceElement }) => {
 
                         {/* IMAGE INPUT  */}
                         <FileUploadInput
-                            imgSrc={placeHolder ? placeHolder.featureImage : featureImage}
+                            placeHolder={placeHolder ? placeHolder.featureImage : ""}
+                            imgSrc={featureImage}
                             setFeatureImage={setFeatureImage}
                             handleChange={handleFeatureImageChange}
                             handleRemove={handleRemoveFeatureImage}

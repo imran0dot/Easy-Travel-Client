@@ -136,7 +136,9 @@ const FromStatesProvider = ({ children }) => {
         handleCountryChange,
 
         handleSubmit,
-        handleDeleteSinglePost
+        handleDeleteSinglePost,
+
+        clearStoreage
     }
 
     return (
