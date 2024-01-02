@@ -4,8 +4,7 @@ import LoadingSpinner from "../../../components/base/LoadingSpinner";
 
 
 const MediaImages = () => {
-    const [loading, setLoading] = useState(false);
-    const [images, setImages] = useState([]);
+    const [images, setImages] = useState(null);
     const [skip, setSkip] = useState(0)
 
 
@@ -23,25 +22,21 @@ const MediaImages = () => {
     }
 
     useEffect(() => {
-        axios(`image-upload?skip=${skip}`).then(res => {
-            setImages(res.data);
-            setLoading(false);
-        });
-        setLoading(false);
+        axios(`image-upload?skip=${skip}`).then(res => setImages(res.data))
     }, [skip]);
 
-    console.log(loading);
 
-    if (loading) {
+    if (!images) {
         return <LoadingSpinner />
     }
 
     return (
         <div className='bg-white border p-3 rounded-md shadow-md'>
             <div className="relative p-4">
+                {/* images map  */}
                 <div className="grid grid-cols-5 gap-2">
                     {
-                        images.map((image) => {
+                        images?.map((image) => {
                             return (
                                 <div key={image._id} className="border shadow-sm p-3 rounded-sm">
                                     <img src={image.url} alt="" />
@@ -51,6 +46,7 @@ const MediaImages = () => {
                     }
                 </div>
 
+                {/* Pagination buttons  */}
                 <div className="w-4/12 mx-auto">
                     <div className="join grid grid-cols-2 mt-10">
                         <button

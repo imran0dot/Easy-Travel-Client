@@ -52,7 +52,7 @@ const Login = () => {
                         </div>
                     </form>
 
-{/* TODO */}
+{/* TODO || needed to create another form for registration */}
                     <div className='mt-2'>
                         {login ?
                             <p>don't have an account ? <span className='text-secondary' onClick={() => setLogin(false)}> Singup</span></p> :

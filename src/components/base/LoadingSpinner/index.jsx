@@ -1,9 +1,9 @@
-import { Triangle } from 'react-loader-spinner';
+import { Oval } from 'react-loader-spinner';
 
 const LoadingSpinner = () => {
     return (
         <div className={`flex justify-center items-center`}>
-            <Triangle
+            <Oval
                 height="80"
                 width="80"
                 color="#002C73"
@@ -11,6 +11,7 @@ const LoadingSpinner = () => {
                 wrapperStyle={{}}
                 wrapperClassName=""
                 visible={true}
+                secondaryColor='#dadde1'
             />
         </div>
     );
