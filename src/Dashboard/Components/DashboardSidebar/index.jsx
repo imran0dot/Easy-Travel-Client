@@ -1,5 +1,6 @@
 import { dashboardNev, dashboardFooter } from "@/assets/data/dashboardData/navMenu.json";
 import { MdOutlineDownhillSkiing, MdOutlineTour, MdSpaceDashboard } from 'react-icons/md'
+import { IoMdImage } from "react-icons/io";
 import { FaUserGraduate } from 'react-icons/fa'
 import ActiveRoute from "../../../components/base/ActiveRoute";
 import { Auth } from "../../../Providers/AuthProvider";
@@ -8,6 +9,7 @@ import DeleteBtn from "../../../components/base/DeleteBtn";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { useLocation } from "react-router-dom";
+
 
 
 const DashboardSidebar = () => {
@@ -29,6 +31,8 @@ const DashboardSidebar = () => {
                                     {icon === "MdOutlineDownhillSkiing" && <MdOutlineDownhillSkiing />}
                                     {icon === "FaUserGraduate" && <FaUserGraduate />}
                                     {icon === "MdSpaceDashboard" && <MdSpaceDashboard />}
+                                    {icon === "IoMdImage" && <IoMdImage />
+}
                                     {label}
                                 </ActiveRoute>
                             </div>

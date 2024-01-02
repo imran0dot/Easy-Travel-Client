@@ -6,6 +6,11 @@
             "icon": "MdSpaceDashboard"
         },
         {
+            "label": "Media images",
+            "link": "/dashboard/media-images",
+            "icon": "IoMdImage"
+        },
+        {
             "label": "Tour Packages",
             "link": "/dashboard/tour-packages",
             "icon": "MdOutlineTour"

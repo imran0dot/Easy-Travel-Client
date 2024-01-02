@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { RxCross2 } from "react-icons/rx";
+import LoadingSpinner from "../../../components/base/LoadingSpinner";
 
-const ImagePopUp = () => {
+
+const MediaImages = () => {
+    const [loading, setLoading] = useState(false);
     const [images, setImages] = useState([]);
     const [skip, setSkip] = useState(0)
 
@@ -21,18 +23,27 @@ const ImagePopUp = () => {
     }
 
     useEffect(() => {
-        axios(`http://localhost:3500/image-upload?skip=${skip}`).then(res => setImages(res.data));
-    }, [skip])
+        axios(`image-upload?skip=${skip}`).then(res => {
+            setImages(res.data);
+            setLoading(false);
+        });
+        setLoading(false);
+    }, [skip]);
+
+    console.log(loading);
+
+    if (loading) {
+        return <LoadingSpinner />
+    }
 
     return (
-        <div className='bg-white border p-3 rounded-md shadow-md absolute left-0 right-0 top-0 bottom-0 z-40'>
-            <div className="relative p-14">
-                <RxCross2 className="absolute right-0 top-2 text-4xl" />
+        <div className='bg-white border p-3 rounded-md shadow-md'>
+            <div className="relative p-4">
                 <div className="grid grid-cols-5 gap-2">
                     {
                         images.map((image) => {
                             return (
-                                <div key={image._id} className="border border-primary p-3 rounded-sm">
+                                <div key={image._id} className="border shadow-sm p-3 rounded-sm">
                                     <img src={image.url} alt="" />
                                 </div>
                             )
@@ -57,4 +68,4 @@ const ImagePopUp = () => {
     );
 };
 
-export default ImagePopUp;
+export default MediaImages;

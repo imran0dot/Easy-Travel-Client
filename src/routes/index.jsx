@@ -18,6 +18,7 @@ import TermsAndCondition from '../pages/TermsAndCondition';
 import StudentAbroad from '../Dashboard/Pages/StudentAbroad';
 import TouristVisaList from '../Dashboard/Pages/TouristVisa';
 import DashboardMain from '../Dashboard/Pages/main';
+import MediaImages from '../Dashboard/Pages/MediaImages';
 
 const router = createBrowserRouter([
     {
@@ -81,6 +82,11 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <DashboardMain />
+            },
+            // Media Images
+            {
+                path: "/dashboard/media-images",
+                element: <MediaImages />,
             },
             // Tour package routes 
             {
