@@ -88,6 +88,7 @@ const TourPackage = () => {
     const getIdFromParams = getParams('update-id');
     if (getIdFromParams) {
         return <UpdatePost
+            priceElement={true}
             handleUpdate={() => {
                 handleSubmit(urlCreate('patch', `tour-package/${getIdFromParams}`), itemData),
                     refetch();

@@ -21,6 +21,8 @@ const MediaImages = () => {
         });
     }
 
+    //TODO || need to fix loader
+
     useEffect(() => {
         axios(`image-upload?skip=${skip}`).then(res => setImages(res.data))
     }, [skip]);
