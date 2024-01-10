@@ -28,18 +28,18 @@
   "contactNav": [
     {
       "label": "WhatsApp",
-      "link": "/",
+      "link": "https://wa.me/+880191950958",
       "icon": "FaWhatsapp"
     },
     {
       "label": "Facebook",
-      "link": "/",
+      "link": "https://www.facebook.com/easytravels.com.bd",
       "icon": "FaFacebook"
     },
     {
-      "label": "Email",
-      "link": "/",
-      "icon": "FaEnvelope"
+      "label": "Call",
+      "link": "tel:01911950958",
+      "icon": "FaPhoneAlt "
     }
   ]
 }

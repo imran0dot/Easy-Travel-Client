@@ -1,4 +1,4 @@
-import { FaWhatsapp, FaFacebook, FaEnvelope } from 'react-icons/fa';
+import { FaWhatsapp, FaFacebook, FaPhoneAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const ContactList = ({ nav }) => {
@@ -10,7 +10,8 @@ const ContactList = ({ nav }) => {
             className='flex items-center gap-2'>
                 {icon === 'FaWhatsapp' && <FaWhatsapp />}
                 {icon === 'FaFacebook' && <FaFacebook />}
-                {icon === 'FaEnvelope' && <FaEnvelope />}
+                {icon === 'FaPhoneAlt ' && <FaPhoneAlt />}
+
                 {label}
             </Link>
         </li>
