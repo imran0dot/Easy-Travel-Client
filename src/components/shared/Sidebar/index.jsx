@@ -13,7 +13,7 @@ const Sidebar = () => {
         {
             label: "Facebook",
             value: "Easy Travel's",
-            link: "https://www.facebook.com/Al.Hussain.Imran/",
+            link: "https://www.facebook.com/easytravels.com.bd",
             icon: <BsFacebook />
         },
         {
