@@ -20,7 +20,7 @@ const HotPackages = () => {
                 </div>
 
                 {data.length === 0 && <LoadingSpinner />}
-                <PackageSlider data={data} />
+                <PackageSlider data={data.splice(0, 5)} />
             </Container>
         </div >
     );

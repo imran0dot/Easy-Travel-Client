@@ -5,6 +5,7 @@ import useData from "../../hooks/useData";
 import LoadingSpinner from "@components/base/LoadingSpinner";
 import Searchbar from "../../components/base/SearchBar";
 import { useState } from "react";
+import ClearFilter from "../../utils/clearFilter";
 
 
 const StudentVisa = () => {
@@ -26,6 +27,7 @@ const StudentVisa = () => {
                     filter={filter}
                     onChange={() => setFilter(false)}
                     setSearchQueary={setSearchQueary} />
+                    <ClearFilter onClick={() => setFilter(true)} />
 
                 {/* LIST ITEMS  */}
                 <div>
