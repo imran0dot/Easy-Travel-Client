@@ -1,6 +1,6 @@
 import Button from "../Button";
 
-const ArchiveCard = ({ data }) => {
+const ArchiveCard = ({ data, rout }) => {
   const { featureImage, title, _id: id, price } = data ?? {};
 
   return (
@@ -23,7 +23,7 @@ const ArchiveCard = ({ data }) => {
       </div>
 
       <div className="flex flex-col justify-between w-full absolute bottom-0 left-0">
-        <Button to={`${id}`}>READ MORE</Button>
+        <Button to={`/${rout}/${id}`}>READ MORE</Button>
       </div>
     </div>
   );

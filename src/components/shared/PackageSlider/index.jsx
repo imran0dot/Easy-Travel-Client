@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import PackageCard from "@components/base/PackageCard";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import ArchiveCard from '../../base/ArchiveCard';
@@ -37,7 +36,7 @@ const PackageSlider = ({ data }) => {
             {
                 data?.map((item, i) => <SwiperSlide key={i}>
                     {/* <PackageCard item={item} /> */}
-                    <ArchiveCard data={item} />
+                    <ArchiveCard rout={'tourist-visa'} data={item} />
                 </SwiperSlide>)
             }
         </Swiper>
