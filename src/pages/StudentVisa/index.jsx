@@ -34,7 +34,7 @@ const StudentVisa = () => {
                     {
                         data?.length !== 0 ?
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-10">
-                                {data?.map((listData, index) => <ArchiveCard key={index} data={listData} />)}
+                                {data?.map((listData, index) => <ArchiveCard rout={'study-abroad'}  key={index} data={listData} />)}
                             </div> :
 
                             <h2 className="text-center text-4xl font-bold my-20">No Package Found Please!</h2>
