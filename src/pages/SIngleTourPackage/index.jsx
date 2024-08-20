@@ -30,7 +30,7 @@ const SingleTourPackage = () => {
 
                     <div className="lg:w-4/12 relative flex flex-col gap-10">
                         <SimpleBoxContainer>
-                            <img src={featureImage && featureImage} alt="" />
+                            <img src={featureImage && featureImage} className="rounded-3xl" alt="" />
                         </SimpleBoxContainer>
                         <Sidebar />
                     </div>

@@ -7,7 +7,7 @@ import Head from "@components/base/Head";
 const Home = () => {
     return (
         <div>
-            <Head title="Provideing inspiration abroad | Easy Travels" />
+            <Head title="UniFast | Your Dream Abroad" />
             <Hero />
             <HotPackages />
             <Informations />
